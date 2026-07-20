@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "oxc.fmt.configPath": "tooling/.oxfmtrc.json",
+  "recommendations": [
+    "oxc.oxc-vscode"
+  ]
+}

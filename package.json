@@ -1,0 +1,41 @@
+{
+  "name": "my-project",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --config tooling/vite.config.ts",
+    "build": "tsc -b && vite build --config tooling/vite.config.ts",
+    "preview": "vite preview --config tooling/vite.config.ts",
+    "lint": "oxlint --config tooling/.oxlintrc.json src tooling",
+    "lint:fix": "oxlint --config tooling/.oxlintrc.json --fix src tooling",
+    "format": "oxfmt --config tooling/.oxfmtrc.json --ignore-path .gitignore --write .",
+    "format:check": "oxfmt --config tooling/.oxfmtrc.json --ignore-path .gitignore --check .",
+    "typecheck": "tsc -b",
+    "check": "yarn typecheck && yarn lint && yarn format:check"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "i18next": "26.3.6",
+    "lucide-react": "1.25.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-i18next": "17.0.10",
+    "react-router-dom": "7.18.1",
+    "tailwind-merge": "3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "24.13.2",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.3",
+    "oxfmt": "0.59.0",
+    "oxlint": "1.74.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.2",
+    "vite": "8.1.1"
+  },
+  "packageManager": "yarn@4.17.1"
+}
