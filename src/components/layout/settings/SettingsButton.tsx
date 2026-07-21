@@ -25,7 +25,9 @@ const SettingsButton = ({ isOpen, onClick }: SettingsButtonProps) => {
       aria-controls="settings-menu"
       onClick={onClick}
     >
-      <span className="hidden sm:inline">{t("settings.title")}</span>
+      <span className="sr-only sm:not-sr-only">
+        {t("settings.title")}
+      </span>
     </Button>
   );
 };

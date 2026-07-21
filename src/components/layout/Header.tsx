@@ -100,7 +100,7 @@ const Header = ({
             onClick={onPrimaryAction}
             leftIcon={<Plus aria-hidden="true" className="size-4" />}
           >
-            <span className="hidden sm:inline">{primaryActionLabel}</span>
+            <span className="sr-only sm:not-sr-only">{primaryActionLabel}</span>
           </Button>
 
           <div ref={settingsContainerRef} className="relative shrink-0">
