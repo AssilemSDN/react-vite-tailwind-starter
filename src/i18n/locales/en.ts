@@ -26,6 +26,11 @@ export const en = {
     open: "Open Settings",
   },
 
+  pages: {
+    underConstruction:
+      "This feature is not available yet.",
+  },
+
   language: {
     label: "Language",
     french: "French",

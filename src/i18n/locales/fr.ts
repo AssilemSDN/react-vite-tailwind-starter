@@ -26,6 +26,11 @@ export const fr = {
     open: "Ouvrir les paramètres",
   },
 
+  pages: {
+    underConstruction:
+      "Cette feature n'est pas encore disponible.",
+  },
+
   language: {
     label: "Langue",
     french: "Français",
