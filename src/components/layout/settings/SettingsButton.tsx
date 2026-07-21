@@ -2,6 +2,7 @@
   PATH src/components/layout/settings/SettingsButton.tsx
 */
 import { Settings } from "lucide-react";
+import { forwardRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import Button from "../../ui/Button";
@@ -11,25 +12,28 @@ export interface SettingsButtonProps {
   onClick: () => void;
 }
 
-const SettingsButton = ({ isOpen, onClick }: SettingsButtonProps) => {
-  const { t } = useTranslation();
+const SettingsButton = forwardRef<HTMLButtonElement, SettingsButtonProps>(
+  ({ isOpen, onClick }, ref) => {
+    const { t } = useTranslation();
 
-  return (
-    <Button
-      type="button"
-      variant="secondary"
-      size="sm"
-      leftIcon={<Settings aria-hidden="true" className="size-4" />}
-      aria-haspopup="dialog"
-      aria-expanded={isOpen}
-      aria-controls="settings-menu"
-      onClick={onClick}
-    >
-      <span className="sr-only sm:not-sr-only">
-        {t("settings.title")}
-      </span>
-    </Button>
-  );
-};
+    return (
+      <Button
+        ref={ref}
+        type="button"
+        variant="secondary"
+        size="sm"
+        leftIcon={<Settings aria-hidden="true" className="size-4" />}
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-controls="settings-menu"
+        onClick={onClick}
+      >
+        <span className="sr-only sm:not-sr-only">{t("settings.title")}</span>
+      </Button>
+    );
+  },
+);
+
+SettingsButton.displayName = "SettingsButton";
 
 export default SettingsButton;

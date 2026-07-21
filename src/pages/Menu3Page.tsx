@@ -9,10 +9,7 @@ const Menu3Page = () => {
   const { t } = useTranslation();
 
   return (
-    <PlaceholderPage
-      title={t("navigation.menu3")}
-      description={t("pages.underConstruction")}
-    />
+    <PlaceholderPage title={t("navigation.menu3")} description={t("pages.underConstruction")} />
   );
 };
 

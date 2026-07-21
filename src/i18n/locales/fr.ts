@@ -27,8 +27,7 @@ export const fr = {
   },
 
   pages: {
-    underConstruction:
-      "Cette feature n'est pas encore disponible.",
+    underConstruction: "Cette feature n'est pas encore disponible.",
   },
 
   language: {

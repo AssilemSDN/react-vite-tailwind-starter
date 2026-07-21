@@ -20,9 +20,7 @@ const PlaceholderPage = ({ title, description }: PlaceholderPageProps) => {
             <Construction aria-hidden="true" className="size-6 text-gray-500" />
           </div>
 
-          <p className="mt-4 max-w-md text-sm leading-6 text-gray-600">
-            {description}
-          </p>
+          <p className="mt-4 max-w-md text-sm leading-6 text-gray-600">{description}</p>
         </Card.Content>
       </Card>
     </section>

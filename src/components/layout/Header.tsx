@@ -2,7 +2,7 @@
   PATH src/components/layout/Header.tsx
 */
 import { Box, Plus } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Button from "../ui/Button";
 import SearchBar from "./SearchBar";
@@ -27,32 +27,72 @@ const Header = ({
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const settingsContainerRef = useRef<HTMLDivElement>(null);
+  const settingsButtonRef = useRef<HTMLButtonElement>(null);
+  const settingsMenuRef = useRef<HTMLDivElement>(null);
+
+  const closeSettings = useCallback((restoreFocus = false) => {
+    setIsSettingsOpen(false);
+
+    if (restoreFocus) {
+      requestAnimationFrame(() => {
+        settingsButtonRef.current?.focus();
+      });
+    }
+  }, []);
 
   useEffect(() => {
+    if (!isSettingsOpen) {
+      return;
+    }
+
+    const menu = settingsMenuRef.current;
+
+    const firstFocusableElement = menu?.querySelector<HTMLElement>(
+      [
+        "button:not([disabled])",
+        "select:not([disabled])",
+        "input:not([disabled])",
+        "textarea:not([disabled])",
+        "a[href]",
+        '[tabindex]:not([tabindex="-1"])',
+      ].join(","),
+    );
+
+    firstFocusableElement?.focus() ?? menu?.focus();
+  }, [isSettingsOpen]);
+
+  useEffect(() => {
+    if (!isSettingsOpen) {
+      return;
+    }
+
     const handlePointerDown = (event: PointerEvent) => {
       const container = settingsContainerRef.current;
 
       if (container && !container.contains(event.target as Node)) {
-        setIsSettingsOpen(false);
+        closeSettings();
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsSettingsOpen(false);
+      if (event.key !== "Escape") {
+        return;
       }
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      closeSettings(true);
     };
 
     document.addEventListener("pointerdown", handlePointerDown);
-
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("pointerdown", handlePointerDown);
-
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [isSettingsOpen, closeSettings]);
 
   return (
     <header className="sticky top-0 z-20 border-b border-gray-200 bg-white">
@@ -103,13 +143,31 @@ const Header = ({
             <span className="sr-only sm:not-sr-only">{primaryActionLabel}</span>
           </Button>
 
-          <div ref={settingsContainerRef} className="relative shrink-0">
+          <div
+            ref={settingsContainerRef}
+            className="relative shrink-0"
+            onBlur={(event) => {
+              const nextFocusedElement = event.relatedTarget;
+
+              if (
+                nextFocusedElement instanceof Node &&
+                event.currentTarget.contains(nextFocusedElement)
+              ) {
+                return;
+              }
+
+              closeSettings();
+            }}
+          >
             <SettingsButton
+              ref={settingsButtonRef}
               isOpen={isSettingsOpen}
-              onClick={() => setIsSettingsOpen((currentValue) => !currentValue)}
+              onClick={() => {
+                setIsSettingsOpen((currentValue) => !currentValue);
+              }}
             />
 
-            <SettingsMenu isOpen={isSettingsOpen} />
+            <SettingsMenu ref={settingsMenuRef} isOpen={isSettingsOpen} />
           </div>
         </div>
       </div>
