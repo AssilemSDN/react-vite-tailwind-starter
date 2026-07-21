@@ -1,3 +1,6 @@
+/*
+  PATH src/components/layout/settings/SettingsButton.tsx
+*/
 import { Settings } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

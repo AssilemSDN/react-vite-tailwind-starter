@@ -1,3 +1,6 @@
+/*
+  PATH src/components/layout/settings/LanguageSwitcher.tsx
+*/
 import { Languages } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

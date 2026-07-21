@@ -1,4 +1,6 @@
-// src/main.tsx
+/*
+  PATH /src/main.tsx
+*/
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

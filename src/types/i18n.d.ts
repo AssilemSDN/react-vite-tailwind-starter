@@ -1,4 +1,6 @@
-// src/types/i18next.d.ts
+/*
+  PATH /src/types/i18n.d.ts
+*/
 
 import "i18next";
 import { defaultNS, resources } from "../i18n/resources";

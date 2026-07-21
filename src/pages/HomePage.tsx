@@ -1,5 +1,6 @@
-// src/pages/HomePage.tsx
-
+/*
+  PATH /src/pages/HomePage.tsx
+*/
 import Card from "../components/ui/Card";
 
 const HomePage = () => {

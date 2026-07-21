@@ -2,8 +2,8 @@
   "name": "my-project",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev": "vite --config tooling/vite.config.ts",
     "build": "tsc -b && vite build --config tooling/vite.config.ts",

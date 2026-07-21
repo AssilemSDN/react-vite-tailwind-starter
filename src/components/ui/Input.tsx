@@ -1,3 +1,6 @@
+/*
+  PATH src/components/ui/Input.tsx
+*/
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 
 import { cn } from "../../lib/cn";

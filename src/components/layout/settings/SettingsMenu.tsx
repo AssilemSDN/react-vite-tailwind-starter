@@ -1,3 +1,6 @@
+/*
+  PATH src/components/layout/settings/SettingsMenu.tsx
+*/
 import { useTranslation } from "react-i18next";
 
 import LanguageSwitcher from "./LanguageSwitcher";

@@ -1,3 +1,6 @@
+/*
+  PATH src/components/layout/SearchBar.tsx
+*/
 import { Search } from "lucide-react";
 import { useState, type FormEvent } from "react";
 

@@ -1,5 +1,6 @@
-// src/App.tsx
-
+/*
+  PATH src/app/App.tsx
+*/
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Layout from "../components/layout/Layout";

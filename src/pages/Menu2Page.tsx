@@ -1,4 +1,6 @@
-// src/pages/Menu2Page.tsx
+/*
+  PATH /src/pages/Menu2Page.tsx
+*/
 
 const Menu2Page = () => null;
 

@@ -1,4 +1,6 @@
-// src/components/ui/Button.tsx
+/*
+  PATH src/components/ui/Button.tsx
+*/
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 
 import { cn } from "../../lib/cn";
