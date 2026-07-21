@@ -1,5 +1,6 @@
-// src/components/layout/Sidebar.tsx
-
+/*
+  PATH src/components/layout/Sidebar.tsx
+*/
 import clsx from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
@@ -17,7 +18,7 @@ const Sidebar = () => {
   return (
     <aside
       className={clsx(
-        "hidden shrink-0 transition-[width] duration-300 md:block",
+        "hidden shrink-0 transition-[width] duration-300 lg:block",
         isCollapsed ? "w-20" : "w-64",
       )}
     >
