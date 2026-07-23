@@ -95,7 +95,7 @@ const Header = ({
   }, [isSettingsOpen, closeSettings]);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-gray-200 bg-white">
+    <header className="top-0 border-gray-200 bg-white sticky z-20 border-b">
       <div
         className={[
           "grid min-h-16 grid-cols-[auto_minmax(0,1fr)_auto] items-center",
@@ -104,8 +104,8 @@ const Header = ({
       >
         {/* Left */}
         <div className="min-w-0">
-          <div className="flex min-w-0 items-center gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-white">
+          <div className="min-w-0 gap-3 flex items-center">
+            <div className="size-10 rounded-lg bg-blue-600 text-white flex shrink-0 items-center justify-center">
               <Box aria-hidden="true" className="size-5" />
             </div>
 
@@ -126,13 +126,13 @@ const Header = ({
             <SearchBar
               onSearch={onSearch}
               placeholder={searchPlaceholder}
-              className="mx-auto max-w-xl"
+              className="max-w-xl mx-auto"
             />
           )}
         </div>
 
         {/* Right */}
-        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+        <div className="gap-1 sm:gap-2 flex shrink-0 items-center">
           <Button
             type="button"
             size="sm"
@@ -140,7 +140,7 @@ const Header = ({
             onClick={onPrimaryAction}
             leftIcon={<Plus aria-hidden="true" className="size-4" />}
           >
-            <span className="sr-only sm:not-sr-only">{primaryActionLabel}</span>
+            <span className="sm:not-sr-only sr-only">{primaryActionLabel}</span>
           </Button>
 
           <div

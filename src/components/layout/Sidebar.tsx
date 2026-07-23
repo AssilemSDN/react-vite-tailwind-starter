@@ -18,15 +18,15 @@ const Sidebar = () => {
   return (
     <aside
       className={clsx(
-        "hidden shrink-0 transition-[width] duration-300 lg:block",
+        "lg:block hidden shrink-0 transition-[width] duration-300",
         isCollapsed ? "w-20" : "w-64",
       )}
     >
-      <div className="sticky top-20 rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
+      <div className="top-20 rounded-xl border-gray-200 bg-white p-3 shadow-sm sticky border">
         <div
           className={clsx(
             "mb-3 flex items-center",
-            isCollapsed ? "justify-center" : "justify-between px-2",
+            isCollapsed ? "justify-center" : "px-2 justify-between",
           )}
         >
           {!isCollapsed && (
@@ -41,7 +41,7 @@ const Sidebar = () => {
             title={toggleLabel}
             aria-label={toggleLabel}
             className={clsx(
-              "flex size-8 items-center justify-center rounded-md",
+              "size-8 rounded-md flex items-center justify-center",
               "text-gray-500 transition-colors",
               "hover:bg-gray-100 hover:text-gray-900",
               "focus-visible:ring-2 focus-visible:outline-none",
@@ -68,7 +68,7 @@ const Sidebar = () => {
                     title={isCollapsed ? label : undefined}
                     className={({ isActive }) =>
                       clsx(
-                        "flex min-h-11 items-center rounded-lg px-3",
+                        "min-h-11 rounded-lg px-3 flex items-center",
                         "text-sm font-medium transition-colors",
                         "focus-visible:ring-2 focus-visible:outline-none",
                         "focus-visible:ring-blue-500",

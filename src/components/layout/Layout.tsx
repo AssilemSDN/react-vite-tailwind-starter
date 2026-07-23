@@ -20,7 +20,7 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-dvh bg-gray-50 text-gray-900">
+    <div className="bg-gray-50 text-gray-900 min-h-dvh">
       <Header
         title={t("app.title")}
         searchPlaceholder={t("header.searchPlaceholder")}

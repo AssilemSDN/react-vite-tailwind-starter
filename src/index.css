@@ -1,1 +1,20 @@
-@import "tailwindcss";
+:root {
+  --app-background: var(--color-gray-50);
+  --app-surface: var(--color-white);
+  --app-foreground: var(--color-gray-900);
+  --app-primary: var(--color-blue-600);
+}
+
+[data-theme="dark"] {
+  --app-background: var(--color-gray-950);
+  --app-surface: var(--color-gray-900);
+  --app-foreground: var(--color-gray-50);
+  --app-primary: var(--color-blue-500);
+}
+
+@theme inline {
+  --color-background: var(--app-background);
+  --color-surface: var(--app-surface);
+  --color-foreground: var(--app-foreground);
+  --color-primary: var(--app-primary);
+}

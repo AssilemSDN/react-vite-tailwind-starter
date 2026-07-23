@@ -11,7 +11,7 @@ const CardRoot = forwardRef<HTMLDivElement, CardProps>(({ className, ...props },
   return (
     <div
       ref={ref}
-      className={cn("rounded-xl border border-gray-200 bg-white text-gray-900", className)}
+      className={cn("rounded-xl border-gray-200 bg-white text-gray-900 border", className)}
       {...props}
     />
   );
@@ -23,7 +23,7 @@ export interface CardHeaderProps extends ComponentPropsWithoutRef<"header"> {}
 
 const CardHeader = forwardRef<HTMLElement, CardHeaderProps>(({ className, ...props }, ref) => {
   return (
-    <header ref={ref} className={cn("border-b border-gray-100 px-4 py-3", className)} {...props} />
+    <header ref={ref} className={cn("border-gray-100 px-4 py-3 border-b", className)} {...props} />
   );
 });
 
@@ -68,7 +68,7 @@ const CardFooter = forwardRef<HTMLElement, CardFooterProps>(({ className, ...pro
     <footer
       ref={ref}
       className={cn(
-        "flex items-center justify-end gap-2 border-t border-gray-100 px-4 py-3",
+        "gap-2 border-gray-100 px-4 py-3 flex items-center justify-end border-t",
         className,
       )}
       {...props}

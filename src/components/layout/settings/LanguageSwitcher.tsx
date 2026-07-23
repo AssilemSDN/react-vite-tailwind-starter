@@ -40,8 +40,8 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="flex items-center gap-2">
-      <Languages aria-hidden="true" className="size-4 shrink-0 text-gray-500" />
+    <div className="gap-2 flex items-center">
+      <Languages aria-hidden="true" className="size-4 text-gray-500 shrink-0" />
 
       <Select
         aria-label={t("language.label")}

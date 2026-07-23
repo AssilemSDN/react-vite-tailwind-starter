@@ -21,7 +21,7 @@ const MobileBottomNav = () => {
       ].join(" ")}
     >
       <ul
-        className="mx-auto grid max-w-xl"
+        className="max-w-xl mx-auto grid"
         style={{
           gridTemplateColumns: `repeat(${navigation.length}, minmax(0, 1fr))`,
         }}
@@ -35,33 +35,31 @@ const MobileBottomNav = () => {
                 to={to}
                 end={end}
                 className={clsx(
-                  "block min-w-0 rounded-xl",
-                  "focus-visible:ring-2 focus-visible:ring-blue-500",
-                  "focus-visible:ring-inset focus-visible:outline-none",
+                  "min-w-0 rounded-xl block",
+                  "focus-visible:ring-blue-500 focus-visible:ring-2",
+                  "focus-visible:outline-none focus-visible:ring-inset",
                 )}
               >
                 {({ isActive }) => (
                   <span
                     className={clsx(
-                      "relative flex min-h-16 min-w-0",
-                      "flex-col items-center justify-center gap-1 px-2 py-2",
-                      "text-[11px] font-medium transition-colors sm:text-xs",
-                      isActive
-                        ? "text-blue-700"
-                        : "text-gray-500 hover:text-gray-900",
+                      "min-h-16 min-w-0 relative flex",
+                      "gap-1 px-2 py-2 flex-col items-center justify-center",
+                      "font-medium sm:text-xs text-[11px] transition-colors",
+                      isActive ? "text-blue-700" : "text-gray-500 hover:text-gray-900",
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={clsx(
-                        "absolute top-0 h-0.5 w-8 rounded-full",
+                        "top-0 h-0.5 w-8 absolute rounded-full",
                         isActive ? "bg-blue-600" : "bg-transparent",
                       )}
                     />
 
                     <span
                       className={clsx(
-                        "flex size-9 items-center justify-center rounded-xl",
+                        "size-9 rounded-xl flex items-center justify-center",
                         isActive && "bg-blue-50",
                       )}
                     >

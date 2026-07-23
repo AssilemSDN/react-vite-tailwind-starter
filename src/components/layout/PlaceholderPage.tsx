@@ -15,8 +15,8 @@ const PlaceholderPage = ({ title, description }: PlaceholderPageProps) => {
       </header>
 
       <Card>
-        <Card.Content className="flex min-h-48 flex-col items-center justify-center text-center">
-          <div className="flex size-12 items-center justify-center rounded-full bg-gray-100">
+        <Card.Content className="min-h-48 flex flex-col items-center justify-center text-center">
+          <div className="size-12 bg-gray-100 flex items-center justify-center rounded-full">
             <Construction aria-hidden="true" className="size-6 text-gray-500" />
           </div>
 

@@ -1,5 +1,8 @@
 {
   "editor.formatOnSave": true,
   "oxc.fmt.configPath": "tooling/.oxfmtrc.json",
-  "recommendations": ["oxc.oxc-vscode"]
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "css.lint.unknownAtRules": "ignore"
 }

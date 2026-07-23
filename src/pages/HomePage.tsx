@@ -12,7 +12,7 @@ const HomePage = () => {
         <p className="mt-2 max-w-3xl text-sm leading-6 text-gray-600">Lorem ipsum dolor sit amet</p>
       </header>
 
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="gap-4 lg:grid-cols-3 grid">
         <Card>
           <Card.Header>
             <Card.Title>Lorem ipsum</Card.Title>
