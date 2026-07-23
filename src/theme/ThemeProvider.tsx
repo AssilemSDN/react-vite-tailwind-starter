@@ -51,8 +51,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, theme);
     } catch {
-      // Le thème fonctionne pour la session même
-      // lorsque localStorage est indisponible.
+      // The selected theme still works for the current session when storage is unavailable.
     }
   }, [resolvedTheme, theme]);
 

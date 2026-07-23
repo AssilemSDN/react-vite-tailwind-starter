@@ -15,13 +15,13 @@ const MobileBottomNav = () => {
       aria-label={t("sidebar.title")}
       className={[
         "fixed inset-x-0 bottom-0 z-40",
-        "border-t border-gray-200 bg-white/95 shadow-[0_-4px_20px_rgb(0_0_0/0.06)]",
+        "border-t border-border bg-surface/95 shadow-[0_-4px_20px_var(--color-shadow)]",
         "pb-[env(safe-area-inset-bottom)] backdrop-blur",
         "lg:hidden",
       ].join(" ")}
     >
       <ul
-        className="max-w-xl mx-auto grid"
+        className="mx-auto grid max-w-xl"
         style={{
           gridTemplateColumns: `repeat(${navigation.length}, minmax(0, 1fr))`,
         }}
@@ -35,32 +35,34 @@ const MobileBottomNav = () => {
                 to={to}
                 end={end}
                 className={clsx(
-                  "min-w-0 rounded-xl block",
-                  "focus-visible:ring-blue-500 focus-visible:ring-2",
+                  "block min-w-0 rounded-xl",
+                  "focus-visible:ring-2 focus-visible:ring-ring",
                   "focus-visible:outline-none focus-visible:ring-inset",
                 )}
               >
                 {({ isActive }) => (
                   <span
                     className={clsx(
-                      "min-h-16 min-w-0 relative flex",
-                      "gap-1 px-2 py-2 flex-col items-center justify-center",
-                      "font-medium sm:text-xs text-[11px] transition-colors",
-                      isActive ? "text-blue-700" : "text-gray-500 hover:text-gray-900",
+                      "relative flex min-h-16 min-w-0",
+                      "flex-col items-center justify-center gap-1 px-2 py-2",
+                      "text-[11px] font-medium transition-colors sm:text-xs",
+                      isActive
+                        ? "text-primary-soft-foreground"
+                        : "text-subtle-foreground hover:text-foreground",
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={clsx(
-                        "top-0 h-0.5 w-8 absolute rounded-full",
-                        isActive ? "bg-blue-600" : "bg-transparent",
+                        "absolute top-0 h-0.5 w-8 rounded-full",
+                        isActive ? "bg-primary" : "bg-transparent",
                       )}
                     />
 
                     <span
                       className={clsx(
-                        "size-9 rounded-xl flex items-center justify-center",
-                        isActive && "bg-blue-50",
+                        "flex size-9 items-center justify-center rounded-xl",
+                        isActive && "bg-primary-soft",
                       )}
                     >
                       <Icon aria-hidden="true" className="size-5" />

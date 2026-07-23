@@ -28,7 +28,7 @@ const SettingsButton = forwardRef<HTMLButtonElement, SettingsButtonProps>(
         aria-controls="settings-menu"
         onClick={onClick}
       >
-        <span className="sm:not-sr-only sr-only">{t("settings.title")}</span>
+        <span className="sr-only sm:not-sr-only">{t("settings.title")}</span>
       </Button>
     );
   },

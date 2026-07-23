@@ -30,6 +30,13 @@ export const fr = {
     underConstruction: "Cette feature n'est pas encore disponible.",
   },
 
+  theme: {
+    label: "Thème",
+    system: "Système",
+    light: "Clair",
+    dark: "Sombre",
+  },
+
   language: {
     label: "Langue",
     french: "Français",

@@ -6,16 +6,16 @@ import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import { cn } from "../../lib/cn";
 
 const BUTTON_VARIANTS = {
-  primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500",
+  primary: "bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:ring-ring",
 
   secondary:
-    "border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 focus-visible:ring-gray-400",
+    "border border-border-strong bg-surface text-foreground hover:bg-surface-hover focus-visible:ring-ring",
 
-  success: "bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-500",
+  success: "bg-success text-success-foreground hover:bg-success-hover focus-visible:ring-success",
 
-  danger: "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500",
+  danger: "bg-danger text-danger-foreground hover:bg-danger-hover focus-visible:ring-danger",
 
-  ghost: "bg-transparent text-gray-700 hover:bg-gray-100 focus-visible:ring-gray-400",
+  ghost: "bg-transparent text-foreground hover:bg-surface-hover focus-visible:ring-ring",
 } as const;
 
 const BUTTON_SIZES = {
@@ -61,9 +61,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         aria-busy={loading || undefined}
         className={cn(
-          "gap-2 rounded-md font-medium inline-flex items-center justify-center",
+          "inline-flex items-center justify-center gap-2 rounded-md font-medium",
           "transition-colors duration-200",
-          "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
+          "focus-visible:ring-2 focus-visible:ring-offset-2",
+          "focus-visible:ring-offset-surface focus-visible:outline-none",
           "disabled:cursor-not-allowed disabled:opacity-50",
           BUTTON_VARIANTS[variant],
           BUTTON_SIZES[size],

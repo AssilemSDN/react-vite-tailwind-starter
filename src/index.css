@@ -1,20 +1,118 @@
+@import "tailwindcss";
+
+/* Keep Tailwind's dark: variant available for one-off component overrides. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
+  color-scheme: light;
+
   --app-background: var(--color-gray-50);
   --app-surface: var(--color-white);
+  --app-surface-muted: var(--color-gray-100);
+  --app-surface-hover: var(--color-gray-100);
+
   --app-foreground: var(--color-gray-900);
+  --app-muted-foreground: var(--color-gray-600);
+  --app-subtle-foreground: var(--color-gray-500);
+  --app-placeholder: var(--color-gray-400);
+
+  --app-border: var(--color-gray-200);
+  --app-border-strong: var(--color-gray-300);
+  --app-border-subtle: var(--color-gray-100);
+
   --app-primary: var(--color-blue-600);
+  --app-primary-hover: var(--color-blue-700);
+  --app-primary-soft: var(--color-blue-50);
+  --app-primary-soft-foreground: var(--color-blue-700);
+  --app-primary-foreground: var(--color-white);
+  --app-ring: var(--color-blue-500);
+
+  --app-success: var(--color-green-600);
+  --app-success-hover: var(--color-green-700);
+  --app-success-foreground: var(--color-white);
+
+  --app-danger: var(--color-red-600);
+  --app-danger-hover: var(--color-red-700);
+  --app-danger-foreground: var(--color-white);
+
+  --app-shadow: rgb(0 0 0 / 0.06);
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
+
   --app-background: var(--color-gray-950);
   --app-surface: var(--color-gray-900);
+  --app-surface-muted: var(--color-gray-800);
+  --app-surface-hover: var(--color-gray-800);
+
   --app-foreground: var(--color-gray-50);
+  --app-muted-foreground: var(--color-gray-300);
+  --app-subtle-foreground: var(--color-gray-400);
+  --app-placeholder: var(--color-gray-500);
+
+  --app-border: var(--color-gray-800);
+  --app-border-strong: var(--color-gray-700);
+  --app-border-subtle: var(--color-gray-800);
+
   --app-primary: var(--color-blue-500);
+  --app-primary-hover: var(--color-blue-400);
+  --app-primary-soft: var(--color-blue-950);
+  --app-primary-soft-foreground: var(--color-blue-300);
+  --app-primary-foreground: var(--color-white);
+  --app-ring: var(--color-blue-400);
+
+  --app-success: var(--color-green-500);
+  --app-success-hover: var(--color-green-400);
+  --app-success-foreground: var(--color-gray-950);
+
+  --app-danger: var(--color-red-500);
+  --app-danger-hover: var(--color-red-400);
+  --app-danger-foreground: var(--color-white);
+
+  --app-shadow: rgb(0 0 0 / 0.35);
 }
 
+/* Expose semantic tokens as regular Tailwind color utilities. */
 @theme inline {
   --color-background: var(--app-background);
   --color-surface: var(--app-surface);
+  --color-surface-muted: var(--app-surface-muted);
+  --color-surface-hover: var(--app-surface-hover);
+
   --color-foreground: var(--app-foreground);
+  --color-muted-foreground: var(--app-muted-foreground);
+  --color-subtle-foreground: var(--app-subtle-foreground);
+  --color-placeholder: var(--app-placeholder);
+
+  --color-border: var(--app-border);
+  --color-border-strong: var(--app-border-strong);
+  --color-border-subtle: var(--app-border-subtle);
+
   --color-primary: var(--app-primary);
+  --color-primary-hover: var(--app-primary-hover);
+  --color-primary-soft: var(--app-primary-soft);
+  --color-primary-soft-foreground: var(--app-primary-soft-foreground);
+  --color-primary-foreground: var(--app-primary-foreground);
+  --color-ring: var(--app-ring);
+
+  --color-success: var(--app-success);
+  --color-success-hover: var(--app-success-hover);
+  --color-success-foreground: var(--app-success-foreground);
+
+  --color-danger: var(--app-danger);
+  --color-danger-hover: var(--app-danger-hover);
+  --color-danger-foreground: var(--app-danger-foreground);
+
+  --color-shadow: var(--app-shadow);
+}
+
+@layer base {
+  html {
+    @apply bg-background;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 }

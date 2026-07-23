@@ -1,9 +1,7 @@
 export const THEME_STORAGE_KEY = "theme";
-
 export const themePreferences = ["system", "light", "dark"] as const;
 
 export type ThemePreference = (typeof themePreferences)[number];
-
 export type ResolvedTheme = Exclude<ThemePreference, "system">;
 
 export const isThemePreference = (value: string | null): value is ThemePreference => {

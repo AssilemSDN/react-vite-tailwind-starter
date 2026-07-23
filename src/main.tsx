@@ -11,6 +11,7 @@ import "./i18n";
 import "./index.css";
 
 import App from "./app/App";
+import { ThemeProvider } from "./theme/ThemeProvider";
 
 const rootElement = document.getElementById("root");
 
@@ -20,8 +21,10 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>,
 );

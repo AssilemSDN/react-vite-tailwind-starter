@@ -41,12 +41,12 @@ const SearchBar = ({
   };
 
   return (
-    <search className={cn("max-w-md w-full", className)}>
+    <search className={cn("w-full max-w-md", className)}>
       <form onSubmit={handleSubmit}>
         <div className="relative">
           <Search
             aria-hidden="true"
-            className="left-3 size-4 text-gray-400 pointer-events-none absolute top-1/2 -translate-y-1/2"
+            className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-placeholder"
           />
 
           <Input

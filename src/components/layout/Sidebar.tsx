@@ -18,19 +18,19 @@ const Sidebar = () => {
   return (
     <aside
       className={clsx(
-        "lg:block hidden shrink-0 transition-[width] duration-300",
+        "hidden shrink-0 transition-[width] duration-300 lg:block",
         isCollapsed ? "w-20" : "w-64",
       )}
     >
-      <div className="top-20 rounded-xl border-gray-200 bg-white p-3 shadow-sm sticky border">
+      <div className="sticky top-20 rounded-xl border border-border bg-surface p-3 shadow-sm">
         <div
           className={clsx(
             "mb-3 flex items-center",
-            isCollapsed ? "justify-center" : "px-2 justify-between",
+            isCollapsed ? "justify-center" : "justify-between px-2",
           )}
         >
           {!isCollapsed && (
-            <h2 className="text-sm font-semibold tracking-wide text-gray-500 uppercase">
+            <h2 className="text-sm font-semibold tracking-wide text-subtle-foreground uppercase">
               {t("sidebar.title")}
             </h2>
           )}
@@ -41,11 +41,11 @@ const Sidebar = () => {
             title={toggleLabel}
             aria-label={toggleLabel}
             className={clsx(
-              "size-8 rounded-md flex items-center justify-center",
-              "text-gray-500 transition-colors",
-              "hover:bg-gray-100 hover:text-gray-900",
+              "flex size-8 items-center justify-center rounded-md",
+              "text-subtle-foreground transition-colors",
+              "hover:bg-surface-hover hover:text-foreground",
               "focus-visible:ring-2 focus-visible:outline-none",
-              "focus-visible:ring-blue-500",
+              "focus-visible:ring-ring",
             )}
           >
             {isCollapsed ? (
@@ -68,14 +68,14 @@ const Sidebar = () => {
                     title={isCollapsed ? label : undefined}
                     className={({ isActive }) =>
                       clsx(
-                        "min-h-11 rounded-lg px-3 flex items-center",
+                        "flex min-h-11 items-center rounded-lg px-3",
                         "text-sm font-medium transition-colors",
                         "focus-visible:ring-2 focus-visible:outline-none",
-                        "focus-visible:ring-blue-500",
+                        "focus-visible:ring-ring",
                         isCollapsed ? "justify-center" : "gap-3",
                         isActive
-                          ? "bg-blue-50 text-blue-700"
-                          : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
+                          ? "bg-primary-soft text-primary-soft-foreground"
+                          : "text-muted-foreground hover:bg-surface-hover hover:text-foreground",
                       )
                     }
                   >
