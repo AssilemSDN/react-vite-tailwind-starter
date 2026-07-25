@@ -40,7 +40,7 @@ const persistLanguage = (language: SupportedLanguage) => {
   try {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
   } catch {
-    // La langue reste active pour la session même si le stockage est bloqué.
+    // The selected theme still works for the current session when storage is unavailable.
   }
 };
 
