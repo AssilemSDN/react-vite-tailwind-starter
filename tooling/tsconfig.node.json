@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "tsBuildInfoFile": "../.cache/typescript/node.tsbuildinfo",
     "target": "es2023",
     "lib": ["ES2023"],

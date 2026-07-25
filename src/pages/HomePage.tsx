@@ -2,8 +2,12 @@
   PATH /src/pages/HomePage.tsx
 */
 import Card from "../components/ui/Card";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 const HomePage = () => {
+
+  useDocumentTitle("pages.home.title");
+  
   return (
     <section className="space-y-6">
       <header>

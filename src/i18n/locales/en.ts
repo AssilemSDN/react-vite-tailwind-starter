@@ -2,6 +2,21 @@ export const en = {
   app: {
     title: "My Project",
   },
+  pages: {
+    home: {
+      title: "Home",
+    },
+    menu1: {
+      title: "Menu 1",
+    },
+    menu2: {
+      title: "Menu 2",
+    },
+    menu3: {
+      title: "Menu 3",
+    },
+    underConstruction: "This feature is not available yet.",
+  },
 
   navigation: {
     home: "Home",
@@ -31,10 +46,6 @@ export const en = {
   settings: {
     title: "Settings",
     open: "Open Settings",
-  },
-
-  pages: {
-    underConstruction: "This feature is not available yet.",
   },
 
   theme: {

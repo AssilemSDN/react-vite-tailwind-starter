@@ -58,7 +58,11 @@ const Header = ({
       ].join(","),
     );
 
-    firstFocusableElement?.focus() ?? menu?.focus();
+    if (firstFocusableElement) {
+      firstFocusableElement.focus();
+    } else {
+      menu?.focus();
+    }
   }, [isSettingsOpen]);
 
   useEffect(() => {
@@ -109,14 +113,14 @@ const Header = ({
               <Box aria-hidden="true" className="size-5" />
             </div>
 
-            <h1
+            <span
               className={[
                 "hidden truncate text-xl font-semibold text-foreground sm:block",
                 "sm:max-w-32 md:max-w-48 lg:max-w-none",
               ].join(" ")}
             >
               {title}
-            </h1>
+            </span>
           </div>
         </div>
 

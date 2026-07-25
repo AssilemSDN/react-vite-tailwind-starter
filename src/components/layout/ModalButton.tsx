@@ -6,12 +6,12 @@ import { useTranslation } from "react-i18next";
 import Button from "../ui/Button";
 import Modal from "../ui/Modal";
 
-export interface Button1ModalProps {
+export interface ModalButtonProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ModalButton = ({ isOpen, onClose }: Button1ModalProps) => {
+const ModalButton = ({ isOpen, onClose }: ModalButtonProps) => {
   const { t } = useTranslation();
 
   return (

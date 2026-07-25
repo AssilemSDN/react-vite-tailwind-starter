@@ -3,6 +3,22 @@ export const fr = {
     title: "Mon Projet",
   },
 
+  pages: {
+    home: {
+      title: "Accueil",
+    },
+    menu1: {
+      title: "Menu 1",
+    },
+    menu2: {
+      title: "Menu 2",
+    },
+    menu3: {
+      title: "Menu 3",
+    },
+    underConstruction: "Cette fonctionnalité n’est pas encore disponible.",
+  },
+
   navigation: {
     home: "Accueil",
     menu1: "Menu 1",
@@ -12,29 +28,25 @@ export const fr = {
 
   modal: {
     title: "Titre",
-    closeLabel: "fermer",
+    closeLabel: "Fermer",
     close: "Fermer",
     content: "Lorem ipsum",
   },
 
   header: {
-    searchPlaceholder: "Rechercher...",
+    searchPlaceholder: "Rechercher…",
     primaryAction: "Bouton",
   },
 
   sidebar: {
     title: "Navigation",
     collapse: "Réduire la navigation",
-    expand: "Déplier la navigation",
+    expand: "Développer la navigation",
   },
 
   settings: {
     title: "Paramètres",
     open: "Ouvrir les paramètres",
-  },
-
-  pages: {
-    underConstruction: "Cette feature n'est pas encore disponible.",
   },
 
   theme: {
