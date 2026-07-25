@@ -56,7 +56,6 @@ src/
 │   ├── layout/
 │   └── ui/
 ├── i18n/
-├── layouts/
 ├── lib/
 ├── pages/
 └── types/

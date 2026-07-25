@@ -2,6 +2,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
   type PropsWithChildren,
@@ -30,6 +31,10 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
 
   const resolvedTheme = resolveTheme(theme, systemTheme);
+
+  useLayoutEffect(() => {
+    document.documentElement.dataset.theme = resolvedTheme;
+  }, [resolvedTheme]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
