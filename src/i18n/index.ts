@@ -12,9 +12,51 @@ const normalizeLanguage = (language: string | null | undefined): SupportedLangua
   return language?.toLowerCase().startsWith("en") ? "en" : "fr";
 };
 
-const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+const getStoredLanguage = (): string | null => {
+  if (typeof window === "undefined") {
+    return null;
+  }
 
-const initialLanguage = normalizeLanguage(storedLanguage ?? navigator.language);
+  try {
+    return window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+};
+
+const getBrowserLanguage = (): string | undefined => {
+  if (typeof navigator === "undefined") {
+    return undefined;
+  }
+
+  return navigator.language;
+};
+
+const persistLanguage = (language: SupportedLanguage) => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+  } catch {
+    // La langue reste active pour la session même si le stockage est bloqué.
+  }
+};
+
+const updateDocumentLanguage = (language: string) => {
+  const normalizedLanguage = normalizeLanguage(language);
+
+  if (typeof document !== "undefined") {
+    document.documentElement.lang = normalizedLanguage;
+  }
+
+  persistLanguage(normalizedLanguage);
+};
+
+const initialLanguage = normalizeLanguage(
+  getStoredLanguage() ?? getBrowserLanguage() ?? fallbackLanguage,
+);
 
 void i18n.use(initReactI18next).init({
   resources,
@@ -26,14 +68,6 @@ void i18n.use(initReactI18next).init({
     escapeValue: false,
   },
 });
-
-const updateDocumentLanguage = (language: string) => {
-  const normalizedLanguage = normalizeLanguage(language);
-
-  document.documentElement.lang = normalizedLanguage;
-
-  localStorage.setItem(LANGUAGE_STORAGE_KEY, normalizedLanguage);
-};
 
 updateDocumentLanguage(initialLanguage);
 

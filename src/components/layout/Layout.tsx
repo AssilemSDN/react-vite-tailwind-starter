@@ -1,3 +1,4 @@
+import { useState } from "react";
 /*
   PATH src/components/layout/Layout.tsx
 */
@@ -6,17 +7,16 @@ import { Outlet } from "react-router-dom";
 
 import Header from "./Header";
 import MobileBottomNav from "./MobileBottomNav";
+import ModalButton from "./ModalButton";
 import Sidebar from "./Sidebar";
 
 const Layout = () => {
   const { t } = useTranslation();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleSearch = (query: string) => {
     console.log("Recherche :", query);
-  };
-
-  const handlePrimaryAction = () => {
-    console.log("Button clicked !");
   };
 
   return (
@@ -26,8 +26,9 @@ const Layout = () => {
         searchPlaceholder={t("header.searchPlaceholder")}
         primaryActionLabel={t("header.primaryAction")}
         onSearch={handleSearch}
-        onPrimaryAction={handlePrimaryAction}
+        onPrimaryAction={() => setIsModalOpen(true)}
       />
+      <ModalButton isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       <div
         className={[

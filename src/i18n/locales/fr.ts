@@ -10,9 +10,16 @@ export const fr = {
     menu3: "Menu 3",
   },
 
+  modal: {
+    title: "Titre",
+    closeLabel: "fermer",
+    close: "Fermer",
+    content: "Lorem ipsum",
+  },
+
   header: {
     searchPlaceholder: "Rechercher...",
-    primaryAction: "Bouton 1",
+    primaryAction: "Bouton",
   },
 
   sidebar: {

@@ -10,9 +10,16 @@ export const en = {
     menu3: "Menu 3",
   },
 
+  modal: {
+    title: "Title",
+    closeLabel: "close",
+    close: "Close",
+    content: "Lorem ipsum",
+  },
+
   header: {
     searchPlaceholder: "Search...",
-    primaryAction: "Button 1",
+    primaryAction: "Button",
   },
 
   sidebar: {
