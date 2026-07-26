@@ -109,7 +109,16 @@ const Header = ({
       >
         {/* Left */}
         <div className="min-w-0">
-          <Link to="/home" aria-label={title} className="flex min-w-0 items-center gap-3">
+          <Link
+            to="/home"
+            aria-label={title}
+            className={[
+              "group flex min-w-0 items-center gap-3 rounded-lg",
+              "focus-visible:outline-none focus-visible:ring-2",
+              "focus-visible:ring-ring focus-visible:ring-offset-2",
+              "focus-visible:ring-offset-surface",
+            ].join(" ")}
+          >
             <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Box aria-hidden="true" className="size-5" />
             </div>
