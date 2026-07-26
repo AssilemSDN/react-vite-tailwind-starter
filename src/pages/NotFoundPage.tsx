@@ -5,6 +5,7 @@ import { ArrowLeft, FileQuestion, Home } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
+import Page from "../components/layout/Page";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -16,11 +17,8 @@ const NotFoundPage = () => {
   useDocumentTitle("pages.notFound.title");
 
   return (
-    <section className="space-y-6">
-      <header>
-        <h1 className="text-2xl font-semibold text-foreground">{t("pages.notFound.title")}</h1>
-      </header>
-
+    <Page>
+      <Page.Header title={t("pages.notFound.title")} />
       <Card>
         <Card.Content className="flex min-h-80 flex-col items-center justify-center text-center">
           <div className="flex size-12 items-center justify-center rounded-full bg-surface-muted">
@@ -53,7 +51,7 @@ const NotFoundPage = () => {
           </div>
         </Card.Content>
       </Card>
-    </section>
+    </Page>
   );
 };
 

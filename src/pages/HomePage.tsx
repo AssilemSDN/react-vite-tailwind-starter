@@ -1,6 +1,7 @@
 /*
   PATH /src/pages/HomePage.tsx
 */
+import Page from "../components/layout/Page";
 import Card from "../components/ui/Card";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
@@ -8,15 +9,8 @@ const HomePage = () => {
   useDocumentTitle("pages.home.title");
 
   return (
-    <section className="space-y-6">
-      <header>
-        <h1 className="text-2xl font-semibold text-foreground">Lorem ipsum</h1>
-
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
-          Lorem ipsum dolor sit amet
-        </p>
-      </header>
-
+    <Page>
+      <Page.Header title="Lorem ipsum" description="Lorem ipsum dolor sit amet" />
       <div className="grid gap-4 lg:grid-cols-3">
         <Card>
           <Card.Header>
@@ -80,7 +74,7 @@ const HomePage = () => {
           </p>
         </Card.Content>
       </Card>
-    </section>
+    </Page>
   );
 };
 

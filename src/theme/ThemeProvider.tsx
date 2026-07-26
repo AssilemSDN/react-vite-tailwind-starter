@@ -51,8 +51,6 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   useEffect(() => {
-    applyResolvedTheme(resolvedTheme);
-
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, theme);
     } catch {
