@@ -36,7 +36,3 @@ export const resolveTheme = (
 ): ResolvedTheme => {
   return preference === "system" ? systemTheme : preference;
 };
-
-export const applyResolvedTheme = (theme: ResolvedTheme) => {
-  document.documentElement.dataset.theme = theme;
-};

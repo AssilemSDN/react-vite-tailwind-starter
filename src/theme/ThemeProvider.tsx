@@ -10,7 +10,6 @@ import {
 
 import {
   THEME_STORAGE_KEY,
-  applyResolvedTheme,
   getStoredTheme,
   getSystemTheme,
   resolveTheme,
