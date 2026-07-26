@@ -1,13 +1,10 @@
-import { useEffect } from "react";
 import type { ParseKeys } from "i18next";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import { defaultNS } from "../i18n/resources";
 
-type PageTitleKey = Extract<
-  ParseKeys<typeof defaultNS>,
-  `pages.${string}.title`
->;
+type PageTitleKey = Extract<ParseKeys<typeof defaultNS>, `pages.${string}.title`>;
 
 export const useDocumentTitle = (pageTitleKey?: PageTitleKey): void => {
   const { t, i18n } = useTranslation();
@@ -15,8 +12,6 @@ export const useDocumentTitle = (pageTitleKey?: PageTitleKey): void => {
   useEffect(() => {
     const appTitle = t("app.title");
 
-    document.title = pageTitleKey
-      ? `${appTitle} — ${t(pageTitleKey)}`
-      : appTitle;
+    document.title = pageTitleKey ? `${appTitle} — ${t(pageTitleKey)}` : appTitle;
   }, [i18n.resolvedLanguage, pageTitleKey, t]);
 };

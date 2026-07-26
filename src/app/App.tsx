@@ -8,6 +8,7 @@ import HomePage from "../pages/HomePage";
 import Menu1Page from "../pages/Menu1Page";
 import Menu2Page from "../pages/Menu2Page";
 import Menu3Page from "../pages/Menu3Page";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const App = () => {
   return (
@@ -19,9 +20,8 @@ const App = () => {
         <Route path="menu-1" element={<Menu1Page />} />
         <Route path="menu-2" element={<Menu2Page />} />
         <Route path="menu-3" element={<Menu3Page />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
-
-      <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
   );
 };

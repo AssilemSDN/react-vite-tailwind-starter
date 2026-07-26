@@ -16,6 +16,14 @@ export const fr = {
     menu3: {
       title: "Menu 3",
     },
+    notFound: {
+      title: "Page introuvable",
+      code: "Erreur 404",
+      description:
+        "La page que vous recherchez n’existe pas, a été déplacée ou n’est plus disponible.",
+      back: "Retour",
+      home: "Retour à l’accueil",
+    },
     underConstruction: "Cette fonctionnalité n’est pas encore disponible.",
   },
 

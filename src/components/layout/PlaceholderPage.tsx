@@ -11,7 +11,7 @@ const PlaceholderPage = ({ title, description }: PlaceholderPageProps) => {
   return (
     <section className="space-y-6">
       <header>
-        <h2 className="text-2xl font-semibold text-foreground">{title}</h2>
+        <h1 className="text-2xl font-semibold text-foreground">{title}</h1>
       </header>
 
       <Card>

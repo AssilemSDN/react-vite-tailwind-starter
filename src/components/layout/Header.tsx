@@ -3,6 +3,7 @@
 */
 import { Box, Plus } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../ui/Button";
 import SearchBar from "./SearchBar";
@@ -108,7 +109,7 @@ const Header = ({
       >
         {/* Left */}
         <div className="min-w-0">
-          <div className="flex min-w-0 items-center gap-3">
+          <Link to="/home" aria-label={title} className="flex min-w-0 items-center gap-3">
             <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Box aria-hidden="true" className="size-5" />
             </div>
@@ -121,7 +122,7 @@ const Header = ({
             >
               {title}
             </span>
-          </div>
+          </Link>
         </div>
 
         {/* Center */}

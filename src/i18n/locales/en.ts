@@ -2,6 +2,7 @@ export const en = {
   app: {
     title: "My Project",
   },
+
   pages: {
     home: {
       title: "Home",
@@ -14,6 +15,14 @@ export const en = {
     },
     menu3: {
       title: "Menu 3",
+    },
+    notFound: {
+      title: "Page not found",
+      code: "Error 404",
+      description:
+        "The page you are looking for does not exist, has been moved, or is no longer available.",
+      back: "Go back",
+      home: "Back to home",
     },
     underConstruction: "This feature is not available yet.",
   },
