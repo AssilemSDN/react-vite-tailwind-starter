@@ -1,10 +1,10 @@
+import { lazy, type ComponentType } from "react";
 import { BookOpen, Home, Layers, Tag, type LucideIcon } from "lucide-react";
-import type { ComponentType } from "react";
 
-import HomePage from "../pages/HomePage";
-import Menu1Page from "../pages/Menu1Page";
-import Menu2Page from "../pages/Menu2Page";
-import Menu3Page from "../pages/Menu3Page";
+const HomePage = lazy(() => import("../pages/HomePage"));
+const Menu1Page = lazy(() => import("../pages/Menu1Page"));
+const Menu2Page = lazy(() => import("../pages/Menu2Page"));
+const Menu3Page = lazy(() => import("../pages/Menu3Page"));
 
 export type NavigationLabelKey =
   | "navigation.home"
