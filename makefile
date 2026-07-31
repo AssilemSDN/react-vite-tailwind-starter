@@ -1,32 +1,28 @@
-IMAGE_NAME ?= react-vite-tailwind-starter
-IMAGE_TAG ?= v0.0.1
-IMAGE := $(IMAGE_NAME):$(IMAGE_TAG)
+# Active environment file
+ENV_FILE ?= .env.dev
 
-SERVICE_DIR := .
-DOCKERFILE := $(SERVICE_DIR)/Dockerfile
+# Load the selected environment variables
+include $(ENV_FILE)
+export
 
-COMPOSE := docker compose
-PORT ?= 8080
-
-.PHONY: build start stop logs ps clean
+.PHONY: build build-no-cache start stop logs restart
 
 build:
-	docker build \
-		--pull \
-		--file $(DOCKERFILE) \
-		--tag $(IMAGE) \
-		$(SERVICE_DIR)
+	docker build -t $(DOCKER_IMAGE_NAME_WEBAPP):$(DOCKER_IMAGE_TAG_WEBAPP) .
+
+build-no-cache:
+	docker build --no-cache -t $(DOCKER_IMAGE_NAME_WEBAPP):$(DOCKER_IMAGE_TAG_WEBAPP) .
+
 start:
-	FRONTEND_IMAGE=$(IMAGE) $(COMPOSE) up --detach
+	docker compose --env-file $(ENV_FILE) up --build --force-recreate --detach --remove-orphans
 
-stop:
-	$(COMPOSE) down --remove-orphans
-
-logs:
-	$(COMPOSE) logs --follow --tail=100
+stop: 
+	docker compose --env-file $(ENV_FILE) down
 
 ps:
-	$(COMPOSE) ps
+	docker compose --env-file $(ENV_FILE) ps
+	
+logs:
+	docker compose --env-file $(ENV_FILE) logs -f
 
-clean:
-	docker image rm $(IMAGE)
+restart: stop start

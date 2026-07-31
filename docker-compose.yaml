@@ -1,7 +1,7 @@
 services:
-  frontend:
-    container_name: "toto"
-    image: ${FRONTEND_IMAGE:-my-project/frontend:local}
-    ports:
-      - "${FRONTEND_PORT:-8080}:80"
+  webapp:
+    image: ${DOCKER_IMAGE_NAME_WEBAPP}:${DOCKER_IMAGE_TAG_WEBAPP}
+    container_name: ${DOCKER_CONTAINER_BASENAME_APP}-webapp
+    ports: 
+      - ${DOCKER_WEBAPP_PORT}:80
     restart: unless-stopped
