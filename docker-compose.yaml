@@ -1,0 +1,7 @@
+services:
+  frontend:
+    container_name: "toto"
+    image: ${FRONTEND_IMAGE:-my-project/frontend:local}
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    restart: unless-stopped

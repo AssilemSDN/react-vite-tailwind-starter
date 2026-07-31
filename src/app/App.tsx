@@ -4,11 +4,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Layout from "../components/layout/Layout";
-import HomePage from "../pages/HomePage";
-import Menu1Page from "../pages/Menu1Page";
-import Menu2Page from "../pages/Menu2Page";
-import Menu3Page from "../pages/Menu3Page";
 import NotFoundPage from "../pages/NotFoundPage";
+import { navigation } from "./navigation";
 
 const App = () => {
   return (
@@ -16,10 +13,10 @@ const App = () => {
       <Route element={<Layout />}>
         <Route index element={<Navigate to="/home" replace />} />
 
-        <Route path="home" element={<HomePage />} />
-        <Route path="menu-1" element={<Menu1Page />} />
-        <Route path="menu-2" element={<Menu2Page />} />
-        <Route path="menu-3" element={<Menu3Page />} />
+        {navigation.map(({ to, Component }) => (
+          <Route key={to} path={to} element={<Component />} />
+        ))}
+
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
