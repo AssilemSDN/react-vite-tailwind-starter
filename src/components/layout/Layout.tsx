@@ -1,7 +1,4 @@
 import { useState } from "react";
-/*
-  PATH src/components/layout/Layout.tsx
-*/
 import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router-dom";
 
@@ -20,33 +17,36 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-dvh bg-background text-foreground">
-      <Header
-        title={t("app.title")}
-        searchPlaceholder={t("header.searchPlaceholder")}
-        primaryActionLabel={t("header.primaryAction")}
-        onSearch={handleSearch}
-        onPrimaryAction={() => setIsModalOpen(true)}
-      />
-      <ModalButton isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    <>
+      <div inert={isModalOpen} className="min-h-dvh bg-background text-foreground">
+        <Header
+          title={t("app.title")}
+          searchPlaceholder={t("header.searchPlaceholder")}
+          primaryActionLabel={t("header.primaryAction")}
+          onSearch={handleSearch}
+          onPrimaryAction={() => setIsModalOpen(true)}
+        />
 
-      <div
-        className={[
-          "flex items-start gap-4",
-          "px-4 pt-4 sm:px-6 sm:pt-6",
-          "pb-[calc(5rem+env(safe-area-inset-bottom))]",
-          "lg:pb-6",
-        ].join(" ")}
-      >
-        <Sidebar />
+        <div
+          className={[
+            "flex items-start gap-4",
+            "px-4 pt-4 sm:px-6 sm:pt-6",
+            "pb-[calc(5rem+env(safe-area-inset-bottom))]",
+            "lg:pb-6",
+          ].join(" ")}
+        >
+          <Sidebar />
 
-        <main className="min-w-0 flex-1">
-          <Outlet />
-        </main>
+          <main className="min-w-0 flex-1">
+            <Outlet />
+          </main>
+        </div>
+
+        <MobileBottomNav />
       </div>
 
-      <MobileBottomNav />
-    </div>
+      <ModalButton isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 };
 

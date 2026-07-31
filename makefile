@@ -5,7 +5,7 @@ ENV_FILE ?= .env.dev
 include $(ENV_FILE)
 export
 
-.PHONY: build build-no-cache start stop logs restart
+.PHONY: build build-no-cache start stop ps logs restart
 
 build:
 	docker build -t $(DOCKER_IMAGE_NAME_WEBAPP):$(DOCKER_IMAGE_TAG_WEBAPP) .
@@ -14,7 +14,7 @@ build-no-cache:
 	docker build --no-cache -t $(DOCKER_IMAGE_NAME_WEBAPP):$(DOCKER_IMAGE_TAG_WEBAPP) .
 
 start:
-	docker compose --env-file $(ENV_FILE) up --build --force-recreate --detach --remove-orphans
+	docker compose --env-file $(ENV_FILE) up --force-recreate --detach --remove-orphans
 
 stop: 
 	docker compose --env-file $(ENV_FILE) down
