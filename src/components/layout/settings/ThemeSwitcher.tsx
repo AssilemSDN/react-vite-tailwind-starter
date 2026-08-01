@@ -2,7 +2,7 @@ import { Monitor, Moon, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { isThemePreference, type ThemePreference } from "../../../theme/theme";
-import { useTheme } from "../../../theme/ThemeProvider";
+import { useTheme } from "../../../theme/useTheme";
 import Select, { type SelectOption } from "../../ui/Select";
 
 const themeIcons = {
