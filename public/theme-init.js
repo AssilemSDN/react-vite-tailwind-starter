@@ -18,5 +18,4 @@ const resolvedTheme = theme === "system" ? (prefersDark ? "dark" : "light") : th
 const root = document.documentElement;
 
 root.dataset.theme = resolvedTheme;
-root.classList.toggle("dark", resolvedTheme === "dark");
 root.style.colorScheme = resolvedTheme;

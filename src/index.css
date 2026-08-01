@@ -116,3 +116,10 @@
     @apply bg-background text-foreground antialiased;
   }
 }
+
+html[data-theme-changing],
+html[data-theme-changing] *,
+html[data-theme-changing] *::before,
+html[data-theme-changing] *::after {
+  transition: none !important;
+}

@@ -17,22 +17,21 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const resolvedTheme = resolveTheme(theme, systemTheme);
 
   useLayoutEffect(() => {
-    document.documentElement.dataset.theme = resolvedTheme;
-  }, [resolvedTheme]);
+    const root = document.documentElement;
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    root.dataset.themeChanging = "";
+    root.dataset.theme = resolvedTheme;
+    root.style.colorScheme = resolvedTheme;
 
-    const handleSystemThemeChange = (event: MediaQueryListEvent) => {
-      setSystemTheme(event.matches ? "dark" : "light");
-    };
-
-    mediaQuery.addEventListener("change", handleSystemThemeChange);
+    const frame = window.requestAnimationFrame(() => {
+      delete root.dataset.themeChanging;
+    });
 
     return () => {
-      mediaQuery.removeEventListener("change", handleSystemThemeChange);
+      window.cancelAnimationFrame(frame);
+      delete root.dataset.themeChanging;
     };
-  }, []);
+  }, [resolvedTheme]);
 
   useEffect(() => {
     try {
@@ -40,7 +39,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     } catch {
       // The selected theme still works for the current session when storage is unavailable.
     }
-  }, [resolvedTheme, theme]);
+  }, [theme]);
 
   const value = useMemo(
     () => ({
