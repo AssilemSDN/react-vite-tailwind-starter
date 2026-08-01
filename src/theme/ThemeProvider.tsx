@@ -12,7 +12,7 @@ import { ThemeContext } from "./ThemeContext";
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [theme, setTheme] = useState<ThemePreference>(getStoredTheme);
-  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
+  const [systemTheme, _setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
 
   const resolvedTheme = resolveTheme(theme, systemTheme);
 

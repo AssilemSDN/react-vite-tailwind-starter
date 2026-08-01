@@ -24,7 +24,7 @@ build-no-cache:
 	docker build --no-cache -t $(DOCKER_IMAGE_NAME_WEBAPP):$(DOCKER_IMAGE_TAG_WEBAPP) .
 
 start:
-	docker compose --env-file $(ENV_FILE) up --force-recreate --detach --remove-orphans
+	docker compose --env-file $(ENV_FILE) up --build --force-recreate --detach --remove-orphans
 
 stop: 
 	docker compose --env-file $(ENV_FILE) down

@@ -1,5 +1,7 @@
 services:
   webapp:
+    build:
+      context: .
     image: ${DOCKER_IMAGE_NAME_WEBAPP}:${DOCKER_IMAGE_TAG_WEBAPP}
     container_name: ${DOCKER_CONTAINER_BASENAME_APP}-webapp
     ports:
