@@ -12,10 +12,24 @@ import { ThemeContext } from "./ThemeContext";
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [theme, setTheme] = useState<ThemePreference>(getStoredTheme);
-  const [systemTheme, _setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
+  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(getSystemTheme);
 
   const resolvedTheme = resolveTheme(theme, systemTheme);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const updateSystemTheme = () => {
+      setSystemTheme(mediaQuery.matches ? "dark" : "light");
+    };
+
+    updateSystemTheme();
+    mediaQuery.addEventListener("change", updateSystemTheme);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateSystemTheme);
+    };
+  }, []);
   useLayoutEffect(() => {
     const root = document.documentElement;
 
