@@ -8,8 +8,19 @@
   "rules": {
     "react/rules-of-hooks": "error",
     "react/exhaustive-deps": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "react/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ],
     "react/react-in-jsx-scope": "off",
-    "typescript/no-explicit-any": "warn"
+    "typescript/no-explicit-any": "warn",
+    "import/no-unassigned-import": [
+      "warn",
+      {
+        "allow": ["**/*.css", "./i18n", "i18next"]
+      }
+    ]
   }
 }
