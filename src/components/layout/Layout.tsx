@@ -7,8 +7,6 @@ import MobileBottomNav from "./MobileBottomNav";
 import ModalButton from "./ModalButton";
 import Sidebar from "./Sidebar";
 
-
-
 const Layout = () => {
   const { t } = useTranslation();
 
@@ -19,14 +17,8 @@ const Layout = () => {
   };
 
   const PageLoader = () => (
-    <div
-      role="status"
-      aria-live="polite"
-      className="flex min-h-64 items-center justify-center"
-    >
-      <span className="text-sm text-muted-foreground">
-        { t("app.loading") }
-      </span>
+    <div role="status" aria-live="polite" className="flex min-h-64 items-center justify-center">
+      <span className="text-sm text-muted-foreground">{t("app.loading")}</span>
     </div>
   );
 

@@ -1,8 +1,8 @@
+import { BookOpen, Home, Layers, Tag, type LucideIcon } from "lucide-react";
 /*
   PATH src/app/navigation.ts
 */
 import { lazy, type ComponentType } from "react";
-import { BookOpen, Home, Layers, Tag, type LucideIcon } from "lucide-react";
 
 import HomePage from "../pages/HomePage";
 

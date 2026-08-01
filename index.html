@@ -2,36 +2,9 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-
-    <script>
-      (() => {
-        const allowedThemes = ["system", "light", "dark"];
-        let theme = "system";
-
-        try {
-          const storedTheme = window.localStorage.getItem("theme");
-
-          if (allowedThemes.includes(storedTheme)) {
-            theme = storedTheme;
-          }
-        } catch {
-          // localStorage peut être indisponible.
-        }
-
-        const resolvedTheme =
-          theme === "system"
-            ? window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light"
-            : theme;
-
-        document.documentElement.dataset.theme = resolvedTheme;
-      })();
-    </script>
-
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <script src="%BASE_URL%theme-init.js"></script>
     <title>Mon Projet</title>
   </head>
 

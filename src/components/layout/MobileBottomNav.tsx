@@ -7,25 +7,31 @@ import { NavLink } from "react-router-dom";
 
 import { navigation } from "../../app/navigation";
 
+const gridColumnsClasses: Record<number, string> = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+  4: "grid-cols-4",
+  5: "grid-cols-5",
+};
+
 const MobileBottomNav = () => {
   const { t } = useTranslation();
+
+  const gridColumnsClass = gridColumnsClasses[navigation.length] ?? "grid-cols-4";
 
   return (
     <nav
       aria-label={t("sidebar.title")}
-      className={[
+      className={clsx(
         "fixed inset-x-0 bottom-0 z-40",
-        "border-t border-border bg-surface/95 shadow-[0_-4px_20px_var(--color-shadow)]",
+        "border-t border-border bg-surface/95",
+        "shadow-[0_-4px_20px_var(--color-shadow)]",
         "pb-[env(safe-area-inset-bottom)] backdrop-blur",
         "lg:hidden",
-      ].join(" ")}
+      )}
     >
-      <ul
-        className="mx-auto grid max-w-xl"
-        style={{
-          gridTemplateColumns: `repeat(${navigation.length}, minmax(0, 1fr))`,
-        }}
-      >
+      <ul className={clsx("mx-auto grid max-w-xl", gridColumnsClass)}>
         {navigation.map(({ labelKey, to, icon: Icon, end }) => {
           const label = t(labelKey);
 
@@ -36,8 +42,9 @@ const MobileBottomNav = () => {
                 end={end}
                 className={clsx(
                   "block min-w-0 rounded-xl",
-                  "focus-visible:ring-2 focus-visible:ring-ring",
-                  "focus-visible:outline-none focus-visible:ring-inset",
+                  "focus-visible:outline-none",
+                  "focus-visible:ring-2 focus-visible:ring-inset",
+                  "focus-visible:ring-ring",
                 )}
               >
                 {({ isActive }) => (
