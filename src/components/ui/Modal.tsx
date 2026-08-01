@@ -2,13 +2,7 @@
   PATH src/components/ui/Modal.tsx
 */
 import { X } from "lucide-react";
-import {
-  type KeyboardEvent as ReactKeyboardEvent,
-  type ReactNode,
-  useEffect,
-  useId,
-  useRef,
-} from "react";
+import { type ReactNode, useEffect, useId, useRef } from "react";
 
 import Button from "./Button";
 
@@ -21,18 +15,9 @@ export interface ModalProps {
   closeLabel?: string;
 }
 
-const FOCUSABLE_ELEMENTS = [
-  "a[href]",
-  "button:not([disabled])",
-  "input:not([disabled])",
-  "select:not([disabled])",
-  "textarea:not([disabled])",
-  '[tabindex]:not([tabindex="-1"])',
-].join(",");
-
 const Modal = ({ isOpen, onClose, title, children, footer, closeLabel = "Fermer" }: ModalProps) => {
   const titleId = useId();
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const onCloseRef = useRef(onClose);
 
@@ -41,7 +26,17 @@ const Modal = ({ isOpen, onClose, title, children, footer, closeLabel = "Fermer"
   }, [onClose]);
 
   useEffect(() => {
+    const dialog = dialogRef.current;
+
+    if (!dialog) {
+      return;
+    }
+
     if (!isOpen) {
+      if (dialog.open) {
+        dialog.close();
+      }
+
       return;
     }
 
@@ -51,101 +46,113 @@ const Modal = ({ isOpen, onClose, title, children, footer, closeLabel = "Fermer"
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    const focusTimer = window.requestAnimationFrame(() => {
-      const firstFocusableElement =
-        dialogRef.current?.querySelector<HTMLElement>(FOCUSABLE_ELEMENTS);
+    if (!dialog.open) {
+      dialog.showModal();
+    }
 
-      firstFocusableElement?.focus();
-    });
+    const focusableSelector = [
+      "a[href]",
+      "button:not([disabled])",
+      "input:not([disabled]):not([type='hidden'])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(",");
 
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onCloseRef.current();
+    const getFocusableElements = () =>
+      Array.from(dialog.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+        (element) =>
+          element.getClientRects().length > 0 && element.getAttribute("aria-hidden") !== "true",
+      );
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = getFocusableElements();
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        dialog.focus();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements.at(-1);
+
+      if (
+        event.shiftKey &&
+        (document.activeElement === firstElement || document.activeElement === dialog)
+      ) {
+        event.preventDefault();
+        lastElement?.focus();
+        return;
+      }
+
+      if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     };
 
-    document.addEventListener("keydown", handleEscape);
+    dialog.addEventListener("keydown", handleKeyDown);
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      const [firstFocusableElement] = getFocusableElements();
+
+      if (firstFocusableElement) {
+        firstFocusableElement.focus();
+      } else {
+        dialog.tabIndex = -1;
+        dialog.focus();
+      }
+    });
 
     return () => {
-      window.cancelAnimationFrame(focusTimer);
-      document.removeEventListener("keydown", handleEscape);
+      window.cancelAnimationFrame(animationFrame);
+      dialog.removeEventListener("keydown", handleKeyDown);
+
       document.body.style.overflow = previousOverflow;
+
+      if (dialog.open) {
+        dialog.close();
+      }
+
       previousFocusRef.current?.focus();
     };
   }, [isOpen]);
 
-  const handleDialogKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
-    if (event.key !== "Tab") {
-      return;
-    }
-
-    const focusableElements = Array.from(
-      dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS) ?? [],
-    );
-
-    if (focusableElements.length === 0) {
-      event.preventDefault();
-      dialogRef.current?.focus();
-      return;
-    }
-
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements.at(-1);
-
-    if (event.shiftKey && document.activeElement === firstElement) {
-      event.preventDefault();
-      lastElement?.focus();
-    } else if (!event.shiftKey && document.activeElement === lastElement) {
-      event.preventDefault();
-      firstElement.focus();
-    }
-  };
-
-  if (!isOpen) {
-    return null;
-  }
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-      onClick={(event) => {
-        if (event.target === event.currentTarget) {
-          onClose();
-        }
+    <dialog
+      ref={dialogRef}
+      aria-labelledby={titleId}
+      onCancel={(event) => {
+        event.preventDefault();
+        onCloseRef.current();
       }}
+      className={[
+        "m-auto w-[calc(100%-2rem)] max-w-md overflow-hidden p-0",
+        "rounded-xl border border-border bg-surface text-foreground",
+        "shadow-xl backdrop:bg-black/50",
+      ].join(" ")}
     >
-      <div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        tabIndex={-1}
-        onKeyDown={handleDialogKeyDown}
-        className="w-full max-w-md rounded-xl border border-border bg-surface shadow-xl"
-      >
-        <div className="flex items-center justify-between border-b border-border px-5 py-4">
-          <h2 id={titleId} className="text-lg font-semibold text-foreground">
-            {title}
-          </h2>
+      <div className="flex items-center justify-between border-b border-border px-5 py-4">
+        <h2 id={titleId} className="text-lg font-semibold text-foreground">
+          {title}
+        </h2>
 
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            aria-label={closeLabel}
-            onClick={onClose}
-          >
-            <X aria-hidden="true" className="size-5" />
-          </Button>
-        </div>
-
-        <div className="p-5">{children}</div>
-
-        {footer && (
-          <div className="flex justify-end gap-2 border-t border-border px-5 py-4">{footer}</div>
-        )}
+        <Button type="button" variant="ghost" size="icon" aria-label={closeLabel} onClick={onClose}>
+          <X aria-hidden="true" className="size-5" />
+        </Button>
       </div>
-    </div>
+
+      <div className="p-5">{children}</div>
+
+      {footer && (
+        <div className="flex justify-end gap-2 border-t border-border px-5 py-4">{footer}</div>
+      )}
+    </dialog>
   );
 };
 

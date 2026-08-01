@@ -28,7 +28,7 @@ const Layout = () => {
 
   return (
     <>
-      <div inert={isModalOpen} className="min-h-dvh bg-background text-foreground">
+      <div className="min-h-dvh bg-background text-foreground">
         <Header
           title={t("app.title")}
           searchPlaceholder={t("header.searchPlaceholder")}
