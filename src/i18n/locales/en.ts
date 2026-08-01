@@ -1,6 +1,7 @@
 export const en = {
   app: {
     title: "My Project",
+    loading: "Loading...",
   },
 
   pages: {

@@ -1,11 +1,13 @@
 /*
   PATH src/app/App.tsx
 */
+import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Layout from "../components/layout/Layout";
-import NotFoundPage from "../pages/NotFoundPage";
 import { navigation } from "./navigation";
+
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 const App = () => {
   return (

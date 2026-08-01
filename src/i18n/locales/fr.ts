@@ -1,6 +1,7 @@
 export const fr = {
   app: {
     title: "Mon Projet",
+    loading: "Chargement...",
   },
 
   pages: {

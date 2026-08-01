@@ -1,7 +1,11 @@
+/*
+  PATH src/app/navigation.ts
+*/
 import { lazy, type ComponentType } from "react";
 import { BookOpen, Home, Layers, Tag, type LucideIcon } from "lucide-react";
 
-const HomePage = lazy(() => import("../pages/HomePage"));
+import HomePage from "../pages/HomePage";
+
 const Menu1Page = lazy(() => import("../pages/Menu1Page"));
 const Menu2Page = lazy(() => import("../pages/Menu2Page"));
 const Menu3Page = lazy(() => import("../pages/Menu3Page"));
