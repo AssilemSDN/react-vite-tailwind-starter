@@ -58,6 +58,7 @@ const initialLanguage = normalizeLanguage(
   getStoredLanguage() ?? getBrowserLanguage() ?? fallbackLanguage,
 );
 
+// oxlint-disable-next-line import/no-named-as-default-member -- i18next default export is an instance exposing use()
 void i18n.use(initReactI18next).init({
   resources,
   lng: initialLanguage,
