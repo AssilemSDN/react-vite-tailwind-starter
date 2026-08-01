@@ -23,7 +23,6 @@ const SettingsButton = forwardRef<HTMLButtonElement, SettingsButtonProps>(
         variant="secondary"
         size="sm"
         leftIcon={<Settings aria-hidden="true" className="size-4" />}
-        aria-haspopup="dialog"
         aria-expanded={isOpen}
         aria-controls="settings-menu"
         onClick={onClick}

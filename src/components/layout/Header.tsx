@@ -29,7 +29,7 @@ const Header = ({
 
   const settingsContainerRef = useRef<HTMLDivElement>(null);
   const settingsButtonRef = useRef<HTMLButtonElement>(null);
-  const settingsMenuRef = useRef<HTMLDivElement>(null);
+  const settingsMenuRef = useRef<HTMLElement>(null);
 
   const closeSettings = useCallback((restoreFocus = false) => {
     setIsSettingsOpen(false);

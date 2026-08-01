@@ -11,7 +11,7 @@ export interface SettingsMenuProps {
   isOpen: boolean;
 }
 
-const SettingsMenu = forwardRef<HTMLDivElement, SettingsMenuProps>(({ isOpen }, ref) => {
+const SettingsMenu = forwardRef<HTMLElement, SettingsMenuProps>(({ isOpen }, ref) => {
   const { t } = useTranslation();
 
   if (!isOpen) {
@@ -19,10 +19,9 @@ const SettingsMenu = forwardRef<HTMLDivElement, SettingsMenuProps>(({ isOpen }, 
   }
 
   return (
-    <div
+    <section
       ref={ref}
       id="settings-menu"
-      role="dialog"
       aria-labelledby="settings-menu-title"
       tabIndex={-1}
       className={[
@@ -38,17 +37,15 @@ const SettingsMenu = forwardRef<HTMLDivElement, SettingsMenuProps>(({ isOpen }, 
       <div className="space-y-4">
         <div className="space-y-2">
           <p className="text-sm font-medium text-muted-foreground">{t("theme.label")}</p>
-
           <ThemeSwitcher />
         </div>
 
         <div className="space-y-2">
           <p className="text-sm font-medium text-muted-foreground">{t("language.label")}</p>
-
           <LanguageSwitcher />
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 
