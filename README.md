@@ -15,7 +15,6 @@ A reusable frontend starter built with React, TypeScript, Vite, and Tailwind CSS
 - Docker and Nginx deployment
 - Github Actions CI
 
-
 ## Requirements
 
 - Node.js 22 LTS or 24 LTS
@@ -56,7 +55,7 @@ yarn lint:fix     # Fix lint issues when possible
 yarn format       # Format the project with Oxfmt
 yarn format:check # Check formatting
 yarn check        # Run all project checks
-yarn test         # Run tests in watch mode 
+yarn test         # Run tests in watch mode
 yarn test:run     # Run tests once
 ```
 
@@ -77,9 +76,9 @@ make stop
 
 ## Project Structure
 
-- `src/` : Application source code 
-- `tooling/` : Vite, TypeScript, lint, and format configuration 
-- `public/` Static assets 
+- `src/` : Application source code
+- `tooling/` : Vite, TypeScript, lint, and format configuration
+- `public/` Static assets
 - `docker/` Nginx configuration
 
 ## Customization
