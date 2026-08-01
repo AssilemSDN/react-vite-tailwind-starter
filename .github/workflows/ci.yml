@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   check:
-    name: Typecheck, lint & format
+    name: Check, test and build
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -22,48 +22,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-
       - name: Enable Corepack
         run: |
           corepack enable
           corepack prepare yarn@4.17.1 --activate
           yarn --version
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: yarn
+          cache-dependency-path: yarn.lock
 
       - name: Install dependencies
         run: yarn install --immutable
 
       - name: Check project
         run: yarn check
+
       - name: Run tests
         run: yarn test:run
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    needs: check
-    timeout-minutes: 10
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-
-      - name: Enable Corepack
-        run: |
-          corepack enable
-          corepack prepare yarn@4.17.1 --activate
-          yarn --version
-
-      - name: Install dependencies
-        run: yarn install --immutable
 
       - name: Build application
         run: yarn build
