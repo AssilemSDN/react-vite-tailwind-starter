@@ -18,13 +18,13 @@ export const fr = {
         title: "Thème personnalisable",
         subtitle: "Adaptez facilement l’identité visuelle",
         description:
-          "Personnalisez l'apparence de votre application avec le support du thème clair/sombre et la détection automatique du thème système.",
+          "Personnalisez l’apparence de votre application avec le support du thème clair/sombre et la détection automatique du thème système.",
       },
       thirdCard: {
         title: "Internationalisation",
         subtitle: "Support multilingue",
         description:
-          "Bénéficiez d'une prise en charge multilingue avec la possibilité de basculer entre différentes langues.",
+          "Bénéficiez d’une prise en charge multilingue avec la possibilité de basculer entre différentes langues.",
       },
       horizontalCard: {
         title: "Une base conçue pour évoluer",
@@ -33,15 +33,102 @@ export const fr = {
           "Ce starter est conçu pour vous permettre de démarrer rapidement et de développer votre application sans avoir à tout reconstruire.",
       },
     },
+
     menu1: {
       title: "Menu 1",
     },
+
     menu2: {
       title: "Menu 2",
     },
+
     menu3: {
       title: "Menu 3",
     },
+
+    components: {
+      title: "Composants",
+      description: "Aperçu des composants UI disponibles dans ce starter.",
+
+      sections: {
+        cards: "Cards",
+        buttons: "Boutons",
+        modal: "Modale",
+        form: "Formulaire",
+      },
+
+      cards: {
+        static: {
+          title: "Card statique",
+          description: "Une card non interactive, sans navigation.",
+          content: "Contenu libre à l’intérieur de la card.",
+          action: "Action",
+        },
+
+        clickable: {
+          title: "Card cliquable",
+          description: "Mène vers la page d’accueil au clic.",
+          content: "Toute la card est un lien, avec indicateur au survol.",
+        },
+      },
+
+      buttons: {
+        primary: "Primaire",
+        secondary: "Secondaire",
+        success: "Succès",
+        danger: "Danger",
+        ghost: "Discret",
+        small: "Petit",
+        medium: "Moyen",
+        large: "Grand",
+        sendEmail: "Envoyer un email",
+        delete: "Supprimer",
+        loading: "Chargement",
+        disabled: "Désactivé",
+      },
+
+      modal: {
+        open: "Ouvrir la modale",
+        title: "Titre de la modale",
+        cancel: "Annuler",
+        confirm: "Confirmer",
+        content: "Contenu de la modale, avec focus trap et fermeture au clavier (Échap).",
+      },
+
+      form: {
+        title: "Contact",
+        description: "Tous les champs marqués d’un * sont requis.",
+
+        name: {
+          label: "Nom",
+          placeholder: "Jean Dupont",
+        },
+
+        email: {
+          label: "Email",
+          placeholder: "jean.dupont@email.fr",
+          error: "Adresse email invalide",
+        },
+
+        subject: {
+          label: "Sujet",
+          hint: "Choisissez la catégorie la plus proche",
+          placeholder: "Sélectionnez un sujet",
+
+          options: {
+            general: "Question générale",
+            support: "Support technique",
+            billing: "Facturation",
+          },
+        },
+
+        actions: {
+          reset: "Réinitialiser",
+          submit: "Envoyer",
+        },
+      },
+    },
+
     notFound: {
       title: "Page introuvable",
       code: "Erreur 404",
@@ -50,6 +137,7 @@ export const fr = {
       back: "Retour",
       home: "Retour à l’accueil",
     },
+
     underConstruction: "Cette fonctionnalité n’est pas encore disponible.",
   },
 

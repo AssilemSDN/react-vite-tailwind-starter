@@ -3,6 +3,7 @@
 */
 import { useTranslation } from "react-i18next";
 
+import { routes } from "../app/routes";
 import Page from "../components/layout/Page";
 import Card from "../components/ui/Card";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -15,7 +16,7 @@ const HomePage = () => {
     <Page>
       <Page.Header title={t("pages.home.title")} description={t("pages.home.description")} />
       <div className="grid gap-4 lg:grid-cols-3">
-        <Card to="/components">
+        <Card to={routes.components}>
           <Card.Header>
             <Card.Title>{t("pages.home.firstCard.title")}</Card.Title>
             <Card.Description>{t("pages.home.firstCard.subtitle")}</Card.Description>

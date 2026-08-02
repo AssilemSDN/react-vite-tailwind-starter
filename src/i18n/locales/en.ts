@@ -33,15 +33,102 @@ export const en = {
           "This starter is designed to help you get up and running quickly and develop your application without having to rebuild everything.",
       },
     },
+
     menu1: {
       title: "Menu 1",
     },
+
     menu2: {
       title: "Menu 2",
     },
+
     menu3: {
       title: "Menu 3",
     },
+
+    components: {
+      title: "Components",
+      description: "Overview of the UI components available in this starter.",
+
+      sections: {
+        cards: "Cards",
+        buttons: "Buttons",
+        modal: "Modal",
+        form: "Form",
+      },
+
+      cards: {
+        static: {
+          title: "Static card",
+          description: "A non-interactive card without navigation.",
+          content: "Free-form content inside the card.",
+          action: "Action",
+        },
+
+        clickable: {
+          title: "Clickable card",
+          description: "Navigates to the home page when clicked.",
+          content: "The entire card is a link with a hover indicator.",
+        },
+      },
+
+      buttons: {
+        primary: "Primary",
+        secondary: "Secondary",
+        success: "Success",
+        danger: "Danger",
+        ghost: "Ghost",
+        small: "Small",
+        medium: "Medium",
+        large: "Large",
+        sendEmail: "Send an email",
+        delete: "Delete",
+        loading: "Loading",
+        disabled: "Disabled",
+      },
+
+      modal: {
+        open: "Open modal",
+        title: "Modal title",
+        cancel: "Cancel",
+        confirm: "Confirm",
+        content: "Modal content with focus trapping and keyboard closing support (Escape).",
+      },
+
+      form: {
+        title: "Contact",
+        description: "All fields marked with * are required.",
+
+        name: {
+          label: "Name",
+          placeholder: "John Doe",
+        },
+
+        email: {
+          label: "Email",
+          placeholder: "john.doe@email.com",
+          error: "Invalid email address",
+        },
+
+        subject: {
+          label: "Subject",
+          hint: "Choose the closest category",
+          placeholder: "Select a subject",
+
+          options: {
+            general: "General question",
+            support: "Technical support",
+            billing: "Billing",
+          },
+        },
+
+        actions: {
+          reset: "Reset",
+          submit: "Send",
+        },
+      },
+    },
+
     notFound: {
       title: "Page not found",
       code: "Error 404",
@@ -50,6 +137,7 @@ export const en = {
       back: "Go back",
       home: "Back to home",
     },
+
     underConstruction: "This feature is not available yet.",
   },
 
@@ -63,7 +151,7 @@ export const en = {
 
   modal: {
     title: "Title",
-    closeLabel: "close",
+    closeLabel: "Close",
     close: "Close",
     content: "Lorem ipsum",
   },
@@ -81,7 +169,7 @@ export const en = {
 
   settings: {
     title: "Settings",
-    open: "Open Settings",
+    open: "Open settings",
   },
 
   theme: {
