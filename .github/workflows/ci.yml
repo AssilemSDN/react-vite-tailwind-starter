@@ -38,11 +38,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      # Linting, type checking, formatting.
       - name: Check project
         run: yarn check
-
-      - name: Check linting
-        run: yarn lint
 
       - name: Run tests
         run: yarn test:run
