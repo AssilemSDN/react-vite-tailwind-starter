@@ -12,10 +12,10 @@ export interface ModalProps {
   title: string;
   children: ReactNode;
   footer?: ReactNode;
-  closeLabel?: string;
+  closeLabel: string;
 }
 
-const Modal = ({ isOpen, onClose, title, children, footer, closeLabel = "Fermer" }: ModalProps) => {
+const Modal = ({ isOpen, onClose, title, children, footer, closeLabel }: ModalProps) => {
   const titleId = useId();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);

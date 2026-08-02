@@ -9,7 +9,7 @@ import Input from "../ui/Input";
 
 export interface SearchBarProps {
   onSearch: (query: string) => void;
-  placeholder?: string;
+  placeholder: string;
   className?: string;
   clearOnSubmit?: boolean;
   disabled?: boolean;
@@ -17,7 +17,7 @@ export interface SearchBarProps {
 
 const SearchBar = ({
   onSearch,
-  placeholder = "Rechercher...",
+  placeholder,
   className,
   clearOnSubmit = false,
   disabled = false,

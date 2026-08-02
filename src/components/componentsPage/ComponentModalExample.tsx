@@ -25,6 +25,7 @@ const ComponentModalExample = () => {
         isOpen={isOpen}
         onClose={closeModal}
         title={t("pages.components.modal.title")}
+        closeLabel={t("modal.closeLabel")}
         footer={
           <>
             <Button variant="secondary" onClick={closeModal}>

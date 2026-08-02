@@ -13,17 +13,17 @@ import SettingsButton from "./settings/SettingsButton";
 import SettingsMenu from "./settings/SettingsMenu";
 
 export interface HeaderProps {
-  title?: string;
-  searchPlaceholder?: string;
-  primaryActionLabel?: string;
+  title: string;
+  searchPlaceholder: string;
+  primaryActionLabel: string;
   onSearch?: (query: string) => void;
   onPrimaryAction?: () => void;
 }
 
 const Header = ({
-  title = "My Project",
-  searchPlaceholder = "Search...",
-  primaryActionLabel = "Button 1",
+  title,
+  searchPlaceholder,
+  primaryActionLabel,
   onSearch,
   onPrimaryAction,
 }: HeaderProps) => {
