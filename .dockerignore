@@ -5,7 +5,7 @@ build
 .git
 .gitignore
 .env
-.env.local
+.env.*
 *.md
 .vscode
 .DS_Store
