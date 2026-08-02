@@ -58,6 +58,7 @@ export const en = {
     menu1: "Menu 1",
     menu2: "Menu 2",
     menu3: "Menu 3",
+    components: "Components",
   },
 
   modal: {
