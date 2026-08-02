@@ -64,7 +64,7 @@
 
   --app-success: var(--color-green-500);
   --app-success-hover: var(--color-green-400);
-  --app-success-foreground: var(--color-gray-950);
+  --app-success-foreground: var(--color-white);
 
   --app-danger: var(--color-red-500);
   --app-danger-hover: var(--color-red-400);
