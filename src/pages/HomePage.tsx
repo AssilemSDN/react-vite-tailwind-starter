@@ -15,7 +15,7 @@ const HomePage = () => {
     <Page>
       <Page.Header title={t("pages.home.title")} description={t("pages.home.description")} />
       <div className="grid gap-4 lg:grid-cols-3">
-        <Card to={t("pages.home.firstCard.to")}>
+        <Card to="/components">
           <Card.Header>
             <Card.Title>{t("pages.home.firstCard.title")}</Card.Title>
             <Card.Description>{t("pages.home.firstCard.subtitle")}</Card.Description>

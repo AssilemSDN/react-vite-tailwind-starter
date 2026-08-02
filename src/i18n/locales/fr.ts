@@ -10,7 +10,6 @@ export const fr = {
       description: "Explorez les fonctionnalités et les composants disponibles dans ce starter",
       firstCard: {
         title: "Composants",
-        to: "/composants",
         subtitle: "Construisez vos interfaces plus rapidement",
         description:
           "Découvrez les composants réutilisables et personnalisables pour créer des interfaces utilisateur attrayantes.",
