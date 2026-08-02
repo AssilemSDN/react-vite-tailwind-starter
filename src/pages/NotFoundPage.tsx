@@ -18,6 +18,8 @@ const NotFoundPage = () => {
 
   useDocumentTitle("pages.notFound.title");
 
+  const canGoBack = Number(window.history.state?.idx ?? 0) > 0;
+
   return (
     <Page>
       <Page.Header title={t("pages.notFound.title")} />
@@ -37,13 +39,15 @@ const NotFoundPage = () => {
           </p>
 
           <div className="mt-6 flex w-full flex-col-reverse justify-center gap-3 sm:w-auto sm:flex-row">
-            <Button
-              variant="secondary"
-              leftIcon={<ArrowLeft aria-hidden="true" className="size-4" />}
-              onClick={() => navigate(-1)}
-            >
-              {t("pages.notFound.back")}
-            </Button>
+            {canGoBack && (
+              <Button
+                variant="secondary"
+                leftIcon={<ArrowLeft aria-hidden="true" className="size-4" />}
+                onClick={() => navigate(-1)}
+              >
+                {t("pages.notFound.back")}
+              </Button>
+            )}
 
             <Button
               leftIcon={<Home aria-hidden="true" className="size-4" />}
