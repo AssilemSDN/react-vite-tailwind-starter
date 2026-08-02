@@ -15,6 +15,8 @@ const Sidebar = () => {
 
   const toggleLabel = isCollapsed ? t("sidebar.expand") : t("sidebar.collapse");
 
+  const sidebarNavigation = navigation.filter((item) => item.showInSidebar !== false);
+
   return (
     <aside
       className={clsx(
@@ -58,7 +60,7 @@ const Sidebar = () => {
 
         <nav aria-label={t("sidebar.title")}>
           <ul className="space-y-1">
-            {navigation.map(({ labelKey, to, icon: Icon, end }) => {
+            {sidebarNavigation.map(({ labelKey, to, icon: Icon, end }) => {
               const label = t(labelKey);
               return (
                 <li key={to}>

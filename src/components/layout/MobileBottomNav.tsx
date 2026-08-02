@@ -18,7 +18,8 @@ const gridColumnsClasses: Record<number, string> = {
 const MobileBottomNav = () => {
   const { t } = useTranslation();
 
-  const gridColumnsClass = gridColumnsClasses[navigation.length] ?? "grid-cols-4";
+  const bottomNavigation = navigation.filter((item) => item.showInBottomNav ?? true);
+  const gridColumnsClass = gridColumnsClasses[bottomNavigation.length] ?? "grid-cols-4";
 
   return (
     <nav
@@ -32,7 +33,7 @@ const MobileBottomNav = () => {
       )}
     >
       <ul className={clsx("mx-auto grid max-w-xl", gridColumnsClass)}>
-        {navigation.map(({ labelKey, to, icon: Icon, end }) => {
+        {bottomNavigation.map(({ labelKey, to, icon: Icon, end }) => {
           const label = t(labelKey);
 
           return (

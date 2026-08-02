@@ -1,10 +1,12 @@
 /*
   PATH src/pages/NotFoundPage.tsx
 */
+
 import { ArrowLeft, FileQuestion, Home } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
+import { routes } from "../app/routes";
 import Page from "../components/layout/Page";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
@@ -19,6 +21,7 @@ const NotFoundPage = () => {
   return (
     <Page>
       <Page.Header title={t("pages.notFound.title")} />
+
       <Card>
         <Card.Content className="flex min-h-80 flex-col items-center justify-center text-center">
           <div className="flex size-12 items-center justify-center rounded-full bg-surface-muted">
@@ -44,7 +47,7 @@ const NotFoundPage = () => {
 
             <Button
               leftIcon={<Home aria-hidden="true" className="size-4" />}
-              onClick={() => navigate("/home")}
+              onClick={() => navigate(routes.home)}
             >
               {t("pages.notFound.home")}
             </Button>

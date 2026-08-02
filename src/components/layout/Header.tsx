@@ -1,10 +1,12 @@
 /*
   PATH src/components/layout/Header.tsx
 */
+
 import { Box, Plus } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { routes } from "../../app/routes";
 import Button from "../ui/Button";
 import SearchBar from "./SearchBar";
 import SettingsButton from "./settings/SettingsButton";
@@ -110,7 +112,7 @@ const Header = ({
         {/* Left */}
         <div className="min-w-0">
           <Link
-            to="/home"
+            to={routes.home}
             aria-label={title}
             className={[
               "group flex min-w-0 items-center gap-3 rounded-lg",
