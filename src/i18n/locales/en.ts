@@ -7,6 +7,31 @@ export const en = {
   pages: {
     home: {
       title: "Home",
+      description: "Explore the features and components available in this starter",
+      firstCard: {
+        title: "Components",
+        subtitle: "Build your interfaces faster",
+        description:
+          "Discover reusable and customizable components to create engaging user interfaces.",
+      },
+      secondCard: {
+        title: "Customizable Theme",
+        subtitle: "Easily adapt the visual identity",
+        description:
+          "Customize the look of your application with light/dark theme support and automatic system theme detection.",
+      },
+      thirdCard: {
+        title: "Internationalization",
+        subtitle: "Multilingual support",
+        description:
+          "Benefit from multilingual support with the ability to switch between different languages.",
+      },
+      horizontalCard: {
+        title: "A foundation designed to scale",
+        subtitle: "Start simple, grow without rebuilding everything.",
+        description:
+          "This starter is designed to help you get up and running quickly and develop your application without having to rebuild everything.",
+      },
     },
     menu1: {
       title: "Menu 1",
