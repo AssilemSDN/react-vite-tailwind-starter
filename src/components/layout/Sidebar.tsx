@@ -39,6 +39,8 @@ const Sidebar = () => {
 
           <button
             type="button"
+            aria-expanded={!isCollapsed}
+            aria-controls="sidebar-nav"
             onClick={() => setIsCollapsed((value) => !value)}
             title={toggleLabel}
             aria-label={toggleLabel}
@@ -58,7 +60,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <nav aria-label={t("sidebar.title")}>
+        <nav id="sidebar-nav" aria-label={t("sidebar.title")}>
           <ul className="space-y-1">
             {sidebarNavigation.map(({ labelKey, to, icon: Icon, end }) => {
               const label = t(labelKey);
@@ -83,7 +85,7 @@ const Sidebar = () => {
                   >
                     <Icon aria-hidden="true" className="size-5 shrink-0" />
 
-                    {!isCollapsed && <span>{label}</span>}
+                    <span className={isCollapsed ? "sr-only" : undefined}>{label}</span>
                   </NavLink>
                 </li>
               );
