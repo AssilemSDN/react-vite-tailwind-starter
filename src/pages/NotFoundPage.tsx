@@ -49,10 +49,7 @@ const NotFoundPage = () => {
               </Button>
             )}
 
-            <Button
-              leftIcon={<Home aria-hidden="true" className="size-4" />}
-              onClick={() => navigate(routes.home)}
-            >
+            <Button to={routes.home} leftIcon={<Home aria-hidden="true" className="size-4" />}>
               {t("pages.notFound.home")}
             </Button>
           </div>

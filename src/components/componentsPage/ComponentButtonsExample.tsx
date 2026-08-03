@@ -2,7 +2,7 @@
   PATH src/components/componentsPage/ComponentButtonsExample.tsx
 */
 
-import { Mail, Trash2 } from "lucide-react";
+import { FileQuestion, Mail, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import Button from "../ui/Button";
@@ -36,6 +36,13 @@ const ComponentButtonsExample = () => {
         </Button>
         <Button loading>{t("pages.components.buttons.loading")}</Button>
         <Button disabled>{t("pages.components.buttons.disabled")}</Button>
+        <Button
+          to="/page-introuvable"
+          variant="secondary"
+          leftIcon={<FileQuestion aria-hidden="true" className="size-4" />}
+        >
+          {t("pages.components.buttons.notFound")}
+        </Button>
       </div>
     </ComponentExampleSection>
   );

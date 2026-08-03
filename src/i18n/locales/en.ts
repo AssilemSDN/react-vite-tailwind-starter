@@ -85,6 +85,7 @@ export const en = {
         delete: "Delete",
         loading: "Loading",
         disabled: "Disabled",
+        notFound: "Open a missing page",
       },
 
       modal: {
