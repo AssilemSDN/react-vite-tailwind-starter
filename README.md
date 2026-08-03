@@ -24,10 +24,10 @@ A reusable frontend starter built with React, TypeScript, Vite, and Tailwind CSS
 
 ## Requirements
 
-- Node.js 22 LTS or 24 LTS
+- Node.js 22 LTS (recommended — used in CI and Docker)
 - Corepack
 - Yarn 4.17.1
-- Make (optionnal)
+- Make (optional)
 
 ## Getting Started
 
