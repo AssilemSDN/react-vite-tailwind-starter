@@ -1,20 +1,19 @@
 /*
   PATH src/components/ui/Field.tsx
 */
-import { cloneElement, isValidElement, useId, type ReactElement, type ReactNode } from "react";
+import { cloneElement, useId, type AriaAttributes, type ReactElement, type ReactNode } from "react";
 
 import { cn } from "../../lib/cn";
 import Label from "./Label";
 
+type FieldControlProps = {
+  id?: string;
+  required?: boolean;
+} & Pick<AriaAttributes, "aria-required" | "aria-describedby" | "aria-invalid">;
+
 export interface FieldProps {
   label: ReactNode;
-  children: ReactElement<{
-    id?: string;
-    required?: boolean;
-    "aria-required"?: boolean;
-    "aria-describedby"?: string;
-    "aria-invalid"?: boolean;
-  }>;
+  children: ReactElement<FieldControlProps>;
   error?: ReactNode;
   hint?: ReactNode;
   required?: boolean;
@@ -22,31 +21,38 @@ export interface FieldProps {
   id?: string;
 }
 
+const mergeIds = (...values: Array<string | undefined>) => {
+  const ids = values.flatMap((value) => value?.split(/\s+/).filter(Boolean) ?? []);
+
+  return [...new Set(ids)].join(" ") || undefined;
+};
+
 const Field = ({ label, children, error, hint, required = false, className, id }: FieldProps) => {
   const generatedId = useId();
-  const fieldId = id ?? generatedId;
+
+  const fieldId = id ?? children.props.id ?? generatedId;
   const hintId = `${fieldId}-hint`;
   const errorId = `${fieldId}-error`;
 
-  const describedBy =
-    [hint && !error ? hintId : undefined, error ? errorId : undefined].filter(Boolean).join(" ") ||
-    undefined;
+  const effectiveRequired = required || children.props.required === true;
+
+  const fieldDescriptionId = error ? errorId : hint ? hintId : undefined;
+
+  const describedBy = mergeIds(children.props["aria-describedby"], fieldDescriptionId);
 
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
-      <Label htmlFor={fieldId} required={required}>
+      <Label htmlFor={fieldId} required={effectiveRequired}>
         {label}
       </Label>
 
-      {isValidElement(children)
-        ? cloneElement(children, {
-            id: fieldId,
-            required: required || undefined,
-            "aria-required": required || undefined,
-            "aria-describedby": describedBy,
-            "aria-invalid": Boolean(error),
-          })
-        : children}
+      {cloneElement(children, {
+        id: fieldId,
+        required: effectiveRequired || undefined,
+        "aria-required": effectiveRequired ? true : children.props["aria-required"],
+        "aria-describedby": describedBy,
+        "aria-invalid": error ? true : children.props["aria-invalid"],
+      })}
 
       {hint && !error && (
         <p id={hintId} className="text-xs text-placeholder">

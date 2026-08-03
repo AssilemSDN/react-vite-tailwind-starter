@@ -45,4 +45,26 @@ describe("UI contracts", () => {
     expect(button).toHaveProperty("disabled", true);
     expect(button.getAttribute("aria-busy")).toBe("true");
   });
+
+  it("Should preserve the child accessibility properties", () => {
+    render(
+      <>
+        <p id="custom-help">Custom help</p>
+
+        <Field label="Name" hint="Field help">
+          <Input required aria-describedby="custom-help" aria-invalid="grammar" />
+        </Field>
+      </>,
+    );
+    const input = screen.getByRole("textbox", { name: "Name" });
+
+    expect(input).toHaveProperty("required", true);
+    expect(input.getAttribute("aria-required")).toBe("true");
+    expect(input.getAttribute("aria-invalid")).toBe("grammar");
+
+    const describedBy = input.getAttribute("aria-describedby");
+
+    expect(describedBy).toContain("custom-help");
+    expect(describedBy).toContain("-hint");
+  });
 });

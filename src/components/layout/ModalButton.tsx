@@ -1,5 +1,5 @@
 /*
-  PATH src/components/layout/Button1Modal.tsx
+  PATH src/components/layout/ModalButton.tsx
 */
 import { useTranslation } from "react-i18next";
 
