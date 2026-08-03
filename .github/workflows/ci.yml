@@ -46,3 +46,6 @@ jobs:
 
       - name: Build application
         run: yarn build
+
+      - name: Build Docker image
+        run: docker build -t react-starter:ci .
