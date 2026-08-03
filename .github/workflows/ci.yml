@@ -22,18 +22,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Enable Corepack
-        run: |
-          corepack enable
-          corepack prepare yarn@4.17.1 --activate
-          yarn --version
-
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: "22"
           cache: yarn
           cache-dependency-path: yarn.lock
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@4.17.1 --activate
+          yarn --version
 
       - name: Install dependencies
         run: yarn install --immutable
