@@ -40,7 +40,7 @@ const persistLanguage = (language: SupportedLanguage) => {
   try {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
   } catch {
-    // The selected theme still works for the current session when storage is unavailable.
+    // Ignore errors when persisting language
   }
 };
 
