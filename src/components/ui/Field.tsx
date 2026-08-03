@@ -10,6 +10,8 @@ export interface FieldProps {
   label: ReactNode;
   children: ReactElement<{
     id?: string;
+    required?: boolean;
+    "aria-required"?: boolean;
     "aria-describedby"?: string;
     "aria-invalid"?: boolean;
   }>;
@@ -26,7 +28,9 @@ const Field = ({ label, children, error, hint, required = false, className, id }
   const hintId = `${fieldId}-hint`;
   const errorId = `${fieldId}-error`;
 
-  const describedBy = [hint && hintId, error && errorId].filter(Boolean).join(" ") || undefined;
+  const describedBy =
+    [hint && !error ? hintId : undefined, error ? errorId : undefined].filter(Boolean).join(" ") ||
+    undefined;
 
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
@@ -37,6 +41,8 @@ const Field = ({ label, children, error, hint, required = false, className, id }
       {isValidElement(children)
         ? cloneElement(children, {
             id: fieldId,
+            required: required || undefined,
+            "aria-required": required || undefined,
             "aria-describedby": describedBy,
             "aria-invalid": Boolean(error),
           })
