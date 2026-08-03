@@ -141,6 +141,10 @@ export const en = {
     underConstruction: "This feature is not available yet.",
   },
 
+  breadcrumb: {
+    label: "Breadcrumb",
+  },
+
   navigation: {
     home: "Home",
     menu1: "Menu 1",

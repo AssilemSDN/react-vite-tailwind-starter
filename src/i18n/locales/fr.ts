@@ -141,6 +141,10 @@ export const fr = {
     underConstruction: "Cette fonctionnalité n’est pas encore disponible.",
   },
 
+  breadcrumb: {
+    label: "Fil d’Ariane",
+  },
+
   navigation: {
     home: "Accueil",
     menu1: "Menu 1",

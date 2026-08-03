@@ -2,6 +2,7 @@ import { Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router-dom";
 
+import AppBreadcrumb from "./AppBreadcrumb";
 import Header from "./Header";
 import MobileBottomNav from "./MobileBottomNav";
 import ModalButton from "./ModalButton";
@@ -48,6 +49,7 @@ const Layout = () => {
           <Sidebar />
 
           <main className="min-w-0 flex-1">
+            <AppBreadcrumb />
             <Suspense fallback={<PageLoader label={t("app.loading")} />}>
               <Outlet />
             </Suspense>
