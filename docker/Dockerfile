@@ -14,7 +14,7 @@ COPY . .
 RUN yarn build
 
 # Production
-FROM nginxinc/nginx-unprivileged:1.30.4-alpine AS production
+FROM nginxinc/nginx-unprivileged:1.31.2-alpine AS production
 
 COPY --chown=101:101 docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build --chown=101:101 /app/dist /usr/share/nginx/html
