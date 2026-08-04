@@ -3,7 +3,7 @@
 */
 
 import { lazy } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router";
 
 import Layout from "../components/layout/Layout";
 import { navigation } from "./navigation";

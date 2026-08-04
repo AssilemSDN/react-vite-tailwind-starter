@@ -4,7 +4,7 @@
 
 import { Box, Plus } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 import { routes } from "../../app/routes";
 import Button from "../ui/Button";

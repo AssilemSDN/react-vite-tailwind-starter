@@ -3,7 +3,7 @@
 */
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 
 import { navigation } from "../../app/navigation";
 

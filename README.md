@@ -32,7 +32,7 @@ Accessibility is treated as a core development requirement rather than an aftert
 
 ## Requirements
 
-- `Node.js` ^20.19.0 or >=22.12.0 (recommended)
+- `Node.js` >=22.22.0
 - `Corepack`
 - `Yarn` 4.17.1
 - `Make`, optional

@@ -3,7 +3,7 @@
 */
 import { ChevronRight } from "lucide-react";
 import { forwardRef, type ComponentPropsWithoutRef, type Ref } from "react";
-import { Link, type LinkProps } from "react-router-dom";
+import { Link, type LinkProps } from "react-router";
 
 import { cn } from "../../lib/cn";
 
