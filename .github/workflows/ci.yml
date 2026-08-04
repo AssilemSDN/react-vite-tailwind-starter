@@ -50,3 +50,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build --file docker/Dockerfile -t react-starter:ci .
+
+      - name: Audit dependencies
+        run: yarn audit
