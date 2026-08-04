@@ -7,7 +7,13 @@ updates:
     schedule:
       interval: weekly
 
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
+
+    allow:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
 
     groups:
       npm-minor-patch:
@@ -17,11 +23,24 @@ updates:
           - minor
           - patch
 
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: scope
+
   # .github/workflows/*.yml
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+
+    open-pull-requests-limit: 3
+
+    allow:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
 
     groups:
       github-actions-minor-patch:
@@ -31,11 +50,23 @@ updates:
           - minor
           - patch
 
+    commit-message:
+      prefix: "chore"
+      include: scope
+
   # docker/Dockerfile
   - package-ecosystem: docker
     directory: /docker
     schedule:
       interval: weekly
+
+    open-pull-requests-limit: 3
+
+    allow:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
 
     groups:
       docker-minor-patch:
@@ -44,3 +75,7 @@ updates:
         update-types:
           - minor
           - patch
+
+    commit-message:
+      prefix: "chore"
+      include: scope
