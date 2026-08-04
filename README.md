@@ -30,7 +30,6 @@ Accessibility is treated as a core development requirement rather than an aftert
 - Multi-stage Docker image
 - Nginx configuration for SPA routing, caching, compression and security headers
 
-
 ## Requirements
 
 - `Node.js` ^20.19.0 or >=22.12.0 (recommended)
@@ -44,6 +43,7 @@ Accessibility is treated as a core development requirement rather than an aftert
 Accessibility has been considered throughout the application architecture and component design.
 
 The starter includes:
+
 - Semantic HTML elements
 - Keyboard-accessible navigation and interactive components
 - Visible focus states
@@ -63,7 +63,7 @@ Accessibility should still be reviewed whenever new pages, components, colors, o
 
 ### 1. Create a repository from the template
 
-Click **Use this template** at the top of the repository page, then select **Create a new repository**. 
+Click **Use this template** at the top of the repository page, then select **Create a new repository**.
 
 Once created, clone your new repository:
 
@@ -79,6 +79,7 @@ $ corepack enable
 ```
 
 The Yarn version is defined in `package.json`:
+
 ```json
 {
   "packageManager": "yarn@4.17.1"
@@ -86,6 +87,7 @@ The Yarn version is defined in `package.json`:
 ```
 
 You can verify the active version with:
+
 ```bash
 $ yarn --version
 ```
@@ -104,11 +106,10 @@ $ yarn dev
 
 The application will be available at: http://localhost:5173
 
-
 ## Available Scripts
 
 | Commande            | Description                                       |
-|---------------------|---------------------------------------------------|
+| ------------------- | ------------------------------------------------- |
 | `yarn dev`          | Start the Vite development server                 |
 | `yarn build`        | Type-check and build the production application   |
 | `yarn preview`      | Preview the production build locally              |
@@ -142,6 +143,7 @@ $ yarn build
 - Navigation items are configured in: `src/app/navigation.ts`
 
 The navigation configuration controls:
+
 - Route paths
 - Page components
 - Navigation labels
@@ -154,14 +156,17 @@ Most pages are lazy-loaded to reduce the initial application bundle.
 ### Internationalization
 
 The starter supports:
+
 - English
 - French
 
 Translation resources are located in:
+
 - `src/i18n/locales/en.ts`
 - `src/i18n/locales/fr.ts`
 
 The initial language is selected from:
+
 1. The language stored in localStorage
 2. The browser language
 3. French as the fallback language
@@ -169,7 +174,9 @@ The initial language is selected from:
 The selected language is persisted automatically, and the `<html lang>` attribute is updated whenever the language changes.
 
 ### Theme Management
+
 The application supports three theme preferences:
+
 - system
 - light
 - dark
@@ -183,9 +190,11 @@ The script located at: `public/theme-init.js` applies the theme before React sta
 Theme-related files are located in: `src/theme/`
 
 ### UI Components
+
 Reusable UI components are located in: `src/components/ui/`.
 
 The starter currently includes components such as:
+
 - Breadcrumb
 - Button
 - Card
@@ -205,6 +214,7 @@ When adding a new component, keep styling based on the semantic design tokens de
 Tests are written with Vitest and Testing Library.
 
 Current tests cover parts of the following areas:
+
 - Theme resolution
 - Translation resources
 - Reusable UI component contracts
@@ -216,6 +226,7 @@ New reusable components and user-facing interactions should include correspondin
 The GitHub Actions workflow is located at: `.github/workflows/ci.yml`. It runs on pushes, pull requests, and manual workflow dispatches.
 
 The workflow performs the following checks:
+
 1. Enables Corepack and Yarn 4
 2. Configures Node.js 22
 3. Installs dependencies with the immutable lockfile
@@ -229,6 +240,7 @@ The workflow performs the following checks:
 #### Environment configuration
 
 Create the local Docker environment file:
+
 ```bash
 $ make init-env
 ```
@@ -236,6 +248,7 @@ $ make init-env
 This creates `.env.dev` from `.env.example`.
 
 Default values:
+
 ```
 DOCKER_IMAGE_NAME_WEBAPP=my-project-ui
 DOCKER_IMAGE_TAG_WEBAPP=v0.0.1
@@ -256,7 +269,7 @@ The application will be available at: http://localhost:8080
 ### Available Make commands
 
 | Commande              | Description                          |
-|-----------------------|--------------------------------------|
+| --------------------- | ------------------------------------ |
 | `make init-env`       | Create the local environment file    |
 | `make build`          | Build the Docker image               |
 | `make build-no-cache` | Build the Docker image without cache |
@@ -269,16 +282,20 @@ The application will be available at: http://localhost:8080
 ### Choose an environment
 
 A different environment file can be selected with:
+
 ```bash
 make start ENV_FILE=.env.production
 ```
+
 ### Production Deployment
 
 The Docker image uses a multi-stage build:
+
 1. Node.js builds the application.
 2. Nginx serves the generated static files.
 
 The included Nginx configuration provides:
+
 - SPA route fallback to `index.html`
 - Gzip compression
 - Long-term caching for generated assets
@@ -289,7 +306,7 @@ The included Nginx configuration provides:
 - MIME type sniffing protection
 - Referrer policy
 - Container health check
-  
+
 #### Content Security Policy
 
 The default Content Security Policy only allows requests to the same origin: `connect-src 'self'`. If the application communicates with an external API, analytics service, CDN, or authentication provider, update `docker/nginx.conf` accordingly.
@@ -299,6 +316,7 @@ The default configuration also disables Web Workers: `worker-src 'none'`. Update
 ## Customization
 
 Before using this repository for a new application, update at least:
+
 - The project name in package.json
 - Docker image and container names in .env.example
 - Application routes in src/app/routes.ts
