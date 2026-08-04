@@ -34,7 +34,7 @@ Accessibility is treated as a core development requirement rather than an aftert
 
 - `Node.js` >=22.22.0
 - `Corepack`
-- `Yarn` 4.17.1
+- `Yarn` 4.18.0
 - `Make`, optional
 - `Docker` and `Docker Compose`, optional
 
