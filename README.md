@@ -9,7 +9,7 @@
 
 A reusable frontend starter built with React, TypeScript, Vite, and Tailwind CSS.
 
-It provides a structured foundation for building responsive and accessible web applications, with routing, internationalization, theme management, reusable UI components, automated checks, tests, and a production-ready Docker setup.
+It provides a structured foundation for building responsive and accessible web applications, with routing, internationalization, theme management, reusable UI components, automated checks, tests, and a solid foundation for production deployment.
 
 Accessibility is treated as a core development requirement rather than an afterthought. The starter includes semantic HTML, keyboard-friendly interactions, focus management, accessible form controls, ARIA attributes where appropriate, and support for user color-scheme preferences.
 
