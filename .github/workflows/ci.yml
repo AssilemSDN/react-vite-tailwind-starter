@@ -25,7 +25,6 @@ jobs:
       - name: Enable Corepack
         run: |
           corepack enable
-          corepack prepare yarn@4.17.1 --activate
           yarn --version
 
       - name: Setup Node.js
