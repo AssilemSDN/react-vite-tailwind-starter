@@ -3,7 +3,6 @@
 */
 
 import { ArrowLeft, FileQuestion, Home } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 
 import { routes } from "../app/routes";
@@ -13,16 +12,15 @@ import Card from "../components/ui/Card";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 const NotFoundPage = () => {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
-  useDocumentTitle("pages.notFound.title");
+  useDocumentTitle("Page introuvable");
 
   const canGoBack = Number(window.history.state?.idx ?? 0) > 0;
 
   return (
     <Page>
-      <Page.Header title={t("pages.notFound.title")} />
+      <Page.Header title="Page introuvable" />
 
       <Card>
         <Card.Content className="flex min-h-80 flex-col items-center justify-center text-center">
@@ -30,12 +28,10 @@ const NotFoundPage = () => {
             <FileQuestion aria-hidden="true" className="size-6 text-subtle-foreground" />
           </div>
 
-          <p className="mt-4 text-sm font-semibold tracking-wider text-primary uppercase">
-            {t("pages.notFound.code")}
-          </p>
+          <p className="mt-4 text-sm font-semibold tracking-wider text-primary uppercase">404</p>
 
           <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">
-            {t("pages.notFound.description")}
+            La page que vous recherchez n'existe pas.
           </p>
 
           <div className="mt-6 flex w-full flex-col-reverse justify-center gap-3 sm:w-auto sm:flex-row">
@@ -45,12 +41,12 @@ const NotFoundPage = () => {
                 leftIcon={<ArrowLeft aria-hidden="true" className="size-4" />}
                 onClick={() => navigate(-1)}
               >
-                {t("pages.notFound.back")}
+                Retour
               </Button>
             )}
 
             <Button to={routes.home} leftIcon={<Home aria-hidden="true" className="size-4" />}>
-              {t("pages.notFound.home")}
+              Page d'accueil
             </Button>
           </div>
         </Card.Content>
