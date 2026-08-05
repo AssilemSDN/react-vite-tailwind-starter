@@ -92,12 +92,12 @@ $ cd <your-repository>
 To use the lightweight French version instead:
 
 ```bash
-git clone --branch lite-fr --single-branch \
+$ git clone --branch lite-fr --single-branch \
   https://github.com/AssilemSDN/react-vite-tailwind-starter.git my-app
 
-cd my-app
-rm -rf .git
-git init
+$ cd my-app
+$ rm -rf .git
+$ git init
 ```
 
 The `lite-fr` branch keeps the same React, Vite, TypeScript and Tailwind foundation while removing the internationalization layer and demo pages.
