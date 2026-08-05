@@ -1,3 +1,7 @@
+> [!NOTE]
+> Vous consultez la variante **Lite FR**.
+> Cette branche est maintenue indépendamment de la version complète disponible sur [`main`](../../tree/main).
+
 # React Vite Tailwind Starter — Lite FR
 
 Version française allégée du starter, sans dépendances d’internationalisation.

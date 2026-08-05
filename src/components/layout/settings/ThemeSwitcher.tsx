@@ -18,15 +18,15 @@ const ThemeSwitcher = () => {
   const options = [
     {
       label: "Système",
-      value: "Système",
+      value: "system",
     },
     {
       label: "Clair",
-      value: "Clair",
+      value: "light",
     },
     {
       label: "Sombre",
-      value: "Sombre",
+      value: "dark",
     },
   ] satisfies readonly SelectOption[];
 
@@ -40,7 +40,6 @@ const ThemeSwitcher = () => {
         options={options}
         onChange={(event) => {
           const nextTheme = event.target.value;
-
           if (isThemePreference(nextTheme)) {
             setTheme(nextTheme);
           }
