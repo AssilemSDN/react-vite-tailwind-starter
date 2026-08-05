@@ -1,9 +1,7 @@
 /*
   PATH /src/pages/HomePage.tsx
 */
-import { routes } from "../app/routes";
 import Page from "../components/layout/Page";
-import Card from "../components/ui/Card";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 const HomePage = () => {

@@ -1,5 +1,4 @@
 import { Monitor, Moon, Sun } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 import { isThemePreference, type ThemePreference } from "../../../theme/theme";
 import { useTheme } from "../../../theme/useTheme";
@@ -12,23 +11,22 @@ const themeIcons = {
 } satisfies Record<ThemePreference, typeof Monitor>;
 
 const ThemeSwitcher = () => {
-  const { t } = useTranslation();
   const { theme, setTheme } = useTheme();
 
   const ThemeIcon = themeIcons[theme];
 
   const options = [
     {
-      label: t("theme.system"),
-      value: "system",
+      label: "Système",
+      value: "Système",
     },
     {
-      label: t("theme.light"),
-      value: "light",
+      label: "Clair",
+      value: "Clair",
     },
     {
-      label: t("theme.dark"),
-      value: "dark",
+      label: "Sombre",
+      value: "Sombre",
     },
   ] satisfies readonly SelectOption[];
 
@@ -37,7 +35,7 @@ const ThemeSwitcher = () => {
       <ThemeIcon aria-hidden="true" className="size-4 shrink-0 text-subtle-foreground" />
 
       <Select
-        aria-label={t("theme.label")}
+        aria-label="Thème"
         value={theme}
         options={options}
         onChange={(event) => {

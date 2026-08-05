@@ -1,7 +1,9 @@
-# React Vite Tailwind Starter — Lite
+# React Vite Tailwind Starter — Lite FR
 
-Version légère du starter sans les dépendances i18n.
+Version française allégée du starter, sans dépendances d’internationalisation.
 
-Cette variante contient une interface uniquement en français, une page d’accueil unique et aucune page de démonstration. Elle conserve néanmoins la configuration React, Vite, Tailwind CSS, TypeScript, les composants UI, les thèmes, les tests, Docker et la CI.
+Cette variante conserve la navigation responsive, React Router, la page 404, les composants UI, les thèmes, les tests, Docker et la CI.
+
+Elle fournit une page d’accueil ainsi qu’une page d’exemple minimale pour faciliter la création de nouvelles sections.
 
 La version complète est disponible sur la branche [`main`](../../tree/main).

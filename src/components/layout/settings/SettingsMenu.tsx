@@ -2,9 +2,7 @@
   PATH src/components/layout/settings/SettingsMenu.tsx
 */
 import { forwardRef } from "react";
-import { useTranslation } from "react-i18next";
 
-import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 export interface SettingsMenuProps {
@@ -12,8 +10,6 @@ export interface SettingsMenuProps {
 }
 
 const SettingsMenu = forwardRef<HTMLElement, SettingsMenuProps>(({ isOpen }, ref) => {
-  const { t } = useTranslation();
-
   if (!isOpen) {
     return null;
   }
@@ -31,18 +27,13 @@ const SettingsMenu = forwardRef<HTMLElement, SettingsMenuProps>(({ isOpen }, ref
       ].join(" ")}
     >
       <h2 id="settings-menu-title" className="mb-4 text-sm font-semibold text-foreground">
-        {t("settings.title")}
+        Paramètres
       </h2>
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <p className="text-sm font-medium text-muted-foreground">{t("theme.label")}</p>
+          <p className="text-sm font-medium text-muted-foreground">Thème</p>
           <ThemeSwitcher />
-        </div>
-
-        <div className="space-y-2">
-          <p className="text-sm font-medium text-muted-foreground">{t("language.label")}</p>
-          <LanguageSwitcher />
         </div>
       </div>
     </section>

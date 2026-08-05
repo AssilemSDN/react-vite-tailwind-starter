@@ -1,5 +1,4 @@
 import { Suspense, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router";
 
 import AppBreadcrumb from "./AppBreadcrumb";
@@ -19,8 +18,6 @@ const PageLoader = ({ label }: PageLoaderProps) => (
 );
 
 const Layout = () => {
-  const { t } = useTranslation();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSearch = (query: string) => {
@@ -31,9 +28,9 @@ const Layout = () => {
     <>
       <div className="min-h-dvh bg-background text-foreground">
         <Header
-          title={t("app.title")}
-          searchPlaceholder={t("header.searchPlaceholder")}
-          primaryActionLabel={t("header.primaryAction")}
+          title={"Mon Application"}
+          searchPlaceholder={"Rechercher..."}
+          primaryActionLabel={"Action principale"}
           onSearch={handleSearch}
           onPrimaryAction={() => setIsModalOpen(true)}
         />
@@ -50,7 +47,7 @@ const Layout = () => {
 
           <main className="min-w-0 flex-1">
             <AppBreadcrumb />
-            <Suspense fallback={<PageLoader label={t("app.loading")} />}>
+            <Suspense fallback={<PageLoader label={"Chargement..."} />}>
               <Outlet />
             </Suspense>
           </main>

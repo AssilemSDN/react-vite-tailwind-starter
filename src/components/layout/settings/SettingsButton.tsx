@@ -3,7 +3,6 @@
 */
 import { Settings } from "lucide-react";
 import { forwardRef } from "react";
-import { useTranslation } from "react-i18next";
 
 import Button from "../../ui/Button";
 
@@ -14,8 +13,6 @@ export interface SettingsButtonProps {
 
 const SettingsButton = forwardRef<HTMLButtonElement, SettingsButtonProps>(
   ({ isOpen, onClick }, ref) => {
-    const { t } = useTranslation();
-
     return (
       <Button
         ref={ref}
@@ -27,7 +24,7 @@ const SettingsButton = forwardRef<HTMLButtonElement, SettingsButtonProps>(
         aria-controls="settings-menu"
         onClick={onClick}
       >
-        <span className="sr-only sm:not-sr-only">{t("settings.title")}</span>
+        <span className="sr-only sm:not-sr-only">Paramètres</span>
       </Button>
     );
   },

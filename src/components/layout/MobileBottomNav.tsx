@@ -2,7 +2,6 @@
   PATH src/components/layout/MobileBottomNav.tsx
 */
 import clsx from "clsx";
-import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
 
 import { navigation } from "../../app/navigation";
@@ -16,14 +15,12 @@ const gridColumnsClasses: Record<number, string> = {
 };
 
 const MobileBottomNav = () => {
-  const { t } = useTranslation();
-
   const bottomNavigation = navigation.filter((item) => item.showInBottomNav ?? true);
   const gridColumnsClass = gridColumnsClasses[bottomNavigation.length] ?? "grid-cols-4";
 
   return (
     <nav
-      aria-label={t("sidebar.title")}
+      aria-label="Navigation du bas de l'écran"
       className={clsx(
         "fixed inset-x-0 bottom-0 z-40",
         "border-t border-border bg-surface/95",
@@ -33,9 +30,7 @@ const MobileBottomNav = () => {
       )}
     >
       <ul className={clsx("mx-auto grid max-w-xl", gridColumnsClass)}>
-        {bottomNavigation.map(({ labelKey, to, icon: Icon, end }) => {
-          const label = t(labelKey);
-
+        {bottomNavigation.map(({ label, to, icon: Icon, end }) => {
           return (
             <li key={to} className="min-w-0">
               <NavLink

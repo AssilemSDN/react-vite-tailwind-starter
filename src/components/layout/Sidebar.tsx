@@ -4,16 +4,14 @@
 import clsx from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
 
 import { navigation } from "../../app/navigation";
 
 const Sidebar = () => {
-  const { t } = useTranslation();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const toggleLabel = isCollapsed ? t("sidebar.expand") : t("sidebar.collapse");
+  const toggleLabel = isCollapsed ? "Développer" : "Réduire";
 
   const sidebarNavigation = navigation.filter((item) => item.showInSidebar !== false);
 
@@ -33,7 +31,7 @@ const Sidebar = () => {
         >
           {!isCollapsed && (
             <h2 className="text-sm font-semibold tracking-wide text-subtle-foreground uppercase">
-              {t("sidebar.title")}
+              Navigation
             </h2>
           )}
 
@@ -60,10 +58,9 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <nav id="sidebar-nav" aria-label={t("sidebar.title")}>
+        <nav id="sidebar-nav" aria-label="Barre latérale">
           <ul className="space-y-1">
-            {sidebarNavigation.map(({ labelKey, to, icon: Icon, end }) => {
-              const label = t(labelKey);
+            {sidebarNavigation.map(({ label, to, icon: Icon, end }) => {
               return (
                 <li key={to}>
                   <NavLink

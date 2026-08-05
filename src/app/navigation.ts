@@ -20,7 +20,7 @@ export interface NavigationItem {
   showInBottomNav?: boolean;
 }
 
-export const navigation = [
+export const navigation: readonly NavigationItem[] = [
   {
     label: "Accueil",
     to: routes.home,

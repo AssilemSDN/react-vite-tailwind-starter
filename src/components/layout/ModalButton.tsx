@@ -1,7 +1,6 @@
 /*
   PATH src/components/layout/ModalButton.tsx
 */
-import { useTranslation } from "react-i18next";
 
 import Button from "../ui/Button";
 import Modal from "../ui/Modal";
@@ -12,21 +11,19 @@ export interface ModalButtonProps {
 }
 
 const ModalButton = ({ isOpen, onClose }: ModalButtonProps) => {
-  const { t } = useTranslation();
-
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title={t("modal.title")}
-      closeLabel={t("modal.closeLabel")}
+      title="Fenêtre Modale"
+      closeLabel="Fermer"
       footer={
         <Button type="button" onClick={onClose}>
-          {t("modal.close")}
+          Fermer
         </Button>
       }
     >
-      <p className="text-sm leading-6 text-muted-foreground">{t("modal.content")}</p>
+      <p className="text-sm leading-6 text-muted-foreground">Contenu de la fenêtre modale</p>
     </Modal>
   );
 };
