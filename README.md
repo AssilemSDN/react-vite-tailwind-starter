@@ -1,3 +1,11 @@
+<p align="center">
+  <img
+    src="./docs/images/react-vite-tailwind-starter.png"
+    alt="Aperçu de React Vite Tailwind Starter"
+    width="900"
+  />
+</p>
+
 # React-Vite-Tailwind starter
 
 [![CI](https://github.com/AssilemSDN/react-vite-tailwind-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/AssilemSDN/react-vite-tailwind-starter/actions/workflows/ci.yml)
@@ -59,11 +67,20 @@ Reusable components are designed to preserve native browser behavior whenever po
 
 Accessibility should still be reviewed whenever new pages, components, colors, or interactions are added. This project has not been formally audited and does not claim complete WCAG compliance.
 
+## Available variants
+
+This starter is available in two variants:
+
+| Branch                                                                              | Description                                          |
+| ----------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [`main`](https://github.com/AssilemSDN/react-vite-tailwind-starter/tree/main)       | Full version with internationalization support       |
+| [`lite-fr`](https://github.com/AssilemSDN/react-vite-tailwind-starter/tree/lite-fr) | Lightweight French version without i18n dependencies |
+
 ## Getting Started
 
 ### 1. Create a repository from the template
 
-Click **Use this template** at the top of the repository page, then select **Create a new repository**.
+Click **Use this template** to create a new repository from the default `main` branch.
 
 Once created, clone your new repository:
 
@@ -71,6 +88,19 @@ Once created, clone your new repository:
 $ git clone https://github.com/<your-username>/<your-repository>.git
 $ cd <your-repository>
 ```
+
+To use the lightweight French version instead:
+
+```bash
+git clone --branch lite-fr --single-branch \
+  https://github.com/AssilemSDN/react-vite-tailwind-starter.git my-app
+
+cd my-app
+rm -rf .git
+git init
+```
+
+The `lite-fr` branch keeps the same React, Vite, TypeScript and Tailwind foundation while removing the internationalization layer and demo pages.
 
 ### 2. Enable Corepack
 
