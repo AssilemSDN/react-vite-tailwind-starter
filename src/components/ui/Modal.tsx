@@ -132,12 +132,13 @@ const Modal = ({ isOpen, onClose, title, children, footer, closeLabel }: ModalPr
         onCloseRef.current();
       }}
       className={[
-        "m-auto w-[calc(100%-2rem)] max-w-md overflow-hidden p-0",
+        "m-auto flex max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-md flex-col overflow-hidden p-0",
+        "[&:not([open])]:hidden",
         "rounded-xl border border-border bg-surface text-foreground",
         "shadow-xl backdrop:bg-black/50",
       ].join(" ")}
     >
-      <div className="flex items-center justify-between border-b border-border px-5 py-4">
+      <div className="flex shrink-0 items-center justify-between border-b border-border px-5 py-4">
         <h2 id={titleId} className="text-lg font-semibold text-foreground">
           {title}
         </h2>
@@ -147,10 +148,20 @@ const Modal = ({ isOpen, onClose, title, children, footer, closeLabel }: ModalPr
         </Button>
       </div>
 
-      <div className="p-5">{children}</div>
+      <div
+        className={[
+          "min-h-0 flex-1 overflow-y-auto",
+          "overscroll-contain",
+          "px-5 py-5 sm:px-6",
+        ].join(" ")}
+      >
+        {children}
+      </div>
 
       {footer && (
-        <div className="flex justify-end gap-2 border-t border-border px-5 py-4">{footer}</div>
+        <div className="flex shrink-0 justify-end gap-2 border-t border-border px-5 py-4">
+          {footer}
+        </div>
       )}
     </dialog>
   );
