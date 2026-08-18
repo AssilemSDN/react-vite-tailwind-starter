@@ -1,5 +1,5 @@
 # Build
-FROM node:22.22-alpine AS build
+FROM node:22.23-alpine AS build
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ COPY . .
 RUN yarn build
 
 # Production
-FROM nginxinc/nginx-unprivileged:1.30.4-alpine AS production
+FROM nginxinc/nginx-unprivileged:1.31.2-alpine AS production
 
 COPY --chown=101:101 docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build --chown=101:101 /app/dist /usr/share/nginx/html
