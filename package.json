@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "clsx": "2.1.1",
-    "lucide-react": "1.31.0",
+    "lucide-react": "1.33.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-router": "8.3.0",
@@ -33,14 +33,14 @@
     "@types/node": "24.13.3",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
-    "@vitejs/plugin-react": "6.0.5",
+    "@vitejs/plugin-react": "6.1.0",
     "jsdom": "30.0.1",
-    "oxfmt": "0.63.0",
-    "oxlint": "1.78.0",
+    "oxfmt": "0.64.0",
+    "oxlint": "1.79.0",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
-    "vite": "8.2.1",
-    "vitest": "4.1.10"
+    "vite": "8.2.2",
+    "vitest": "4.1.11"
   },
   "engines": {
     "node": ">=22.22.0"
